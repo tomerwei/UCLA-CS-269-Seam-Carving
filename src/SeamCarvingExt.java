@@ -54,21 +54,23 @@ public class SeamCarvingExt {
 	private void runParallelAlgorithm( int width, int height, int newWidth )
 	{
 		int thread1_xStart= 0;     			int thread1_yStart= 0; 
-		int thread1_xEnd= width/4; 			int thread1_yEnd= height/4;
+		int thread1_xEnd= width/2; 			int thread1_yEnd= height/2;
 		
-		int thread2_xStart= 1+ (width/4);	int thread2_yStart= 1+(height/4); 
-		int thread2_xEnd= width/2;      	int thread2_yEnd = height/2;
+		int thread2_xStart= 1+ (width/2);	int thread2_yStart= 0; 
+		int thread2_xEnd= width;	      	int thread2_yEnd = height/2;
 		
-		int thread3_xStart= 1+ (width/2); 	int thread3_yStart= 1+(height/2);
-		int thread3_xEnd= 3*width/4;    	int thread3_yEnd = 3*height/4;
+		int thread3_xStart= 0; 				int thread3_yStart= 1+(height/2);
+		int thread3_xEnd= width/2;   		int thread3_yEnd  = height;
 		
-		int thread4_xStart= 1+ (3*width/4); int thread4_yStart= 1+(3*height/4);
+		int thread4_xStart= 1+ (width/2); 	int thread4_yStart= 1+(height/2);
 		int thread4_xEnd = width;           int thread4_yEnd= height;		
 		
 		
 		int originalWidth = width;
 		for( ;width > newWidth; ) 
 		{
+			System.out.println( width + " " + newWidth );
+			
 			runParallelAlgorithmThread(thread1_xStart, thread1_yStart, 
 					thread1_xEnd, thread1_yEnd, originalWidth, newWidth );
 			runParallelAlgorithmThread(thread2_xStart, thread2_yStart, 
@@ -289,7 +291,9 @@ public class SeamCarvingExt {
 				}				
 			}
 		}
-		double percent = (double)(inImg.getWidth() - oldWidth )/(double)(inImg.getWidth() - newWidth);
+		double inImgWidth = inImg.getWidth();
+		
+		double percent = (double)( inImgWidth - oldWidth )/(double)( inImgWidth - newWidth);
 		System.out.printf("cc%.3f\n", percent);
 		System.out.println("---");
 	}
