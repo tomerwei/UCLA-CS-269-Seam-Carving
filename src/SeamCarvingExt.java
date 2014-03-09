@@ -34,7 +34,7 @@ public class SeamCarvingExt {
 		int originalHeight = inImg.getHeight();
 		
 		//parallel part start		
-		runParallelAlgorithm(originalWidth, originalHeight, newWidth);				
+		runParallelAlgorithm_2Threads(originalWidth, originalHeight, newWidth);				
 		//parallel part end
 		saveImage(newWidth);
 		System.out.println("Done.");
@@ -51,7 +51,7 @@ public class SeamCarvingExt {
 		removeSeam( seam, startX, endX, startY, endY, originalWidth, newWidth);					
 	}
 	
-	private void runParallelAlgorithm( int width, int height, int newWidth )
+	private void runParallelAlgorithm_4Threads( int width, int height, int newWidth )
 	{
 		int thread1_xStart= 0;     			int thread1_yStart= 0; 
 		int thread1_xEnd= width/2; 			int thread1_yEnd= height/2;
@@ -84,7 +84,30 @@ public class SeamCarvingExt {
 		}		
 	}
 	
+	private void runParallelAlgorithm_2Threads( int width, int height, int newWidth )
+	{
+		int thread1_xStart= 0;     			int thread1_yStart= 0; 
+		int thread1_xEnd= width; 			int thread1_yEnd= height/2;
+		
+		int thread2_xStart= 0;				int thread2_yStart= 1+(height/2); 
+		int thread2_xEnd= width;	      	int thread2_yEnd = height;
+				
+		int originalWidth = width;
+		for( ;width > newWidth; ) 
+		{
+			System.out.println( width + " " + newWidth );
+			
+			runParallelAlgorithmThread(thread1_xStart, thread1_yStart, 
+					thread1_xEnd, thread1_yEnd, originalWidth, newWidth );
+			runParallelAlgorithmThread(thread2_xStart, thread2_yStart, 
+					thread2_xEnd, thread2_yEnd, originalWidth, newWidth );
+		
+			width=width-1;
+		}		
+	}
 
+	
+	
 	private boolean init(String fileName, int newWidth) {
 		File in = null;
 		try 
