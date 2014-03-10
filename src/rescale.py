@@ -99,15 +99,16 @@ def resize(image, dim):
         else:
             todo[0] = False
     return image
-    #Image.fromarray(image.astype('uint8')).save("outkast.png")
 
 if __name__ == "__main__":
     filename = sys.argv[1]
-    width = int(sys.argv[2])
-    height = int(sys.argv[3])
-     
-    num_seg_width = 1
-    num_seg_height = 3
+    height = int(sys.argv[2])
+    width = int(sys.argv[3])
+    num_seg_height = int(raw_input("Number of vertically running segments?: "))
+    num_seg_width = int(raw_input("Number of horizontally running segments? "))
+    
+    #num_seg_width = 30
+    #num_seg_height = 30
     
     
 
@@ -116,7 +117,7 @@ if __name__ == "__main__":
     image = np.asarray(im, dtype=np.float)
     
     old_seg_width = image.shape[0]/num_seg_width
-    old_seg_height = image.shape[1]/num_seg_width
+    old_seg_height = image.shape[1]/num_seg_height
 
     new_seg_width = width/num_seg_width
     new_seg_height = height/num_seg_height
@@ -136,10 +137,10 @@ if __name__ == "__main__":
             print new_image[seg_width,seg_height].shape
             new_image_1[seg_width*new_seg_width:(seg_width+1)*new_seg_width, (seg_height)*new_seg_height:(seg_height+1)*new_seg_height] = new_image[seg_width,seg_height]
             new_filename= ""
-            new_filename = "output"+ str(seg_width*new_seg_width)+ "_"+ str(seg_height*new_seg_height)+ filename
+            new_filename = "images/output"+ str(seg_width*new_seg_width)+ "_"+ str(seg_height*new_seg_height)+ filename
             print new_filename
             Image.fromarray(new_image[seg_width,seg_height].astype('uint8')).save(new_filename)
-    segmented_filename = "output" + filename
+    segmented_filename = "segmented"+str(num_seg_height)+"x"+str(num_seg_width)+"_"+str(height)+"x"+str(width)+filename
     Image.fromarray(new_image_1.astype('uint8')).save(segmented_filename)
     #file_name = filename+"_seg_cais.png"
     #resize(image, (width, height)
