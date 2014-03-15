@@ -1,4 +1,4 @@
-u%%% template.tex
+%%% cs269.tex
 %%%
 %%% This LaTeX source document can be used as the basis for your technical
 %%% paper or abstract. Intentionally stripped of annotation, the parameters
@@ -25,8 +25,8 @@ u%%% template.tex
   Weiss, Tomer\\
   \texttt{tweiss@cs.ucla.edu}
   \and
-  Lui, Brian\\
-  \texttt{nastybrutus@gmail.com}
+  Liu, Brian\\
+  \texttt{liubrian7@ucla.edu}
 }
 
 
@@ -48,8 +48,8 @@ u%%% template.tex
 
 Seam carving deals with the task of taking an input picture and resizing it to fit another screen type and aspect ratio. In this paper, we discuss possible methods to improve the algorithm, and also make it work faster. We approached this problem using the segmentation approach, and got promising results.
 
-%% Citations can be done this way~\cite{Jobs95} or this more concise 
-%%way~\shortcite{Jobs95}, depending upon the application.
+ % %Citations can be done this way~\cite{Liu2007} or this more % % %concise 
+ % %way~\shortcite{Liu2007}, depending upon the application.
 
 %%Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
 %%suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
@@ -91,10 +91,20 @@ seam, resulting in an image which is one pixel smaller, either on width or heigh
 
 In the original paper, the optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can be used for enlarging the image, by finding seams to be removed and duplicating them. It produces impressive results when there are enough low-importance seams to be removed, but creates distortions and artifacts when seams cut through important areas.
 
-Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. 
+Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. There are other methods that rely on segmentation to assign saliencies to different regions in the image. Previous work by ~\cite{Liu2007} and ~\cite{Hasan2009} suggests to segment the image into regions and then assign saliencies to each region by considering heuristics such as the region size, position in the image, and relationships between neighboring regions. ~\cite{Setlur2005} proposed to segment the image using mean-shift and assign saliencies to the obtained regions by a combination of bottom-up and top-down features. Also, ~\cite{Avidan2007} ,authors of the original Seam Carving algorithm, suggested that users could scribble on salient areas. 
+
+To summarize, our goal is to experiment with different combinations of Seam Carving and image segmentation, and by so to improve the results of the original paper.
 
 
+\section{Exposition}
 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
 
 \begin{equation}
  \sum_{j=1}^{z} j = \frac{z(z+1)}{2}
@@ -113,15 +123,6 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-\section{Exposition}
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
