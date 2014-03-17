@@ -96,6 +96,35 @@ Motivated by the compelling applications and the challenges related to the probl
 To summarize, our goal is to experiment with different combinations of Seam Carving and image segmentation, and by so to improve the results of the original paper.
 
 
+\section{Technical details}
+
+\subsection{Overview}
+
+Our method builds upon the basis of the original seam carving algorithm, where we the laplacian to find the energy levels of each pixel in the input image. After finding the energy levels, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then the we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.
+
+\subsection{Image Energy}
+
+
+\subsection{Dynamic Programming Algorithm}
+We find the optimal seam for each segment using dynamic programming. The first step is to traverse the image from the second row to the last row and compute the cumulative minimum energy $M$ for all possible connected seams for each entry $(i, j)$:
+
+At the end of this process, the minimum value of the last row in $M$ will indicate the end of the minimal connected vertical seam. Therefore, in the second step we backtrack from this minimum entry on $M$ to find the path of the optimal seam. The definition of $M$ for horizontal seams is similar:
+
+\begin{equation}
+M(i,j) = e(i,j) + min( M(i-1,j-1), M(i-1,j), M(i-1,j+1) )
+\end{equation}
+
+We repeat the above process for each segment, and then remove the newly found seams for each of them, hence resizing the picture.
+
+\subsection{Complexity}
+
+
+\subsection{Implementation}
+
+
+
+
+
 \section{Exposition}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
