@@ -103,6 +103,30 @@ To summarize, our goal is to experiment with different combinations of Seam Carv
 Our method builds upon the basis of the original seam carving algorithm, where we the laplacian to find the energy levels of each pixel in the input image. After finding the energy levels, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then the we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.
 
 \subsection{Image Energy}
+Our initial approach, similar to the original paper, is to preserve the image's energy, by removing unnoticeable pixels. That leads to the following energy function that was used in the original paper:
+
+\begin{equation}
+e_I(I)=   \lvert \frac{\partial}{\partial x} I \rvert + \lvert  \frac{\partial}{\partial y} I 
+\rvert 
+\end{equation}
+
+we need a resizing operator that will be less restrictive than cropping or column removal, but can preserve the image content better than single pixel removals. This leads to our strategy of seam carving and the definition of image seams. Let $I$ be and $n x m $ image and define a vertical seam to be:
+
+\begin{equation}
+s^{x} = { \left\{ s_{i}^{x} \right\}  }_{i=1}^{n} = 
+{\left\{ (x(i),i) \right\}}_{i=1}^{n} ,s.t. \forall i \lvert x(i) - x(i - 1)  \rvert \leq 1
+\end{equation}
+
+where x is a mapping $x : [1, . . . , n] \longrightarrow [1, . . . , m]$. That is, a vertical seam is an 8-connected path of pixels in the image from top to bot-tom, containing one, and only one, pixel in each row of the image. Similarly, if y is a mapping y : [1, . . . , m] → [1, . . . , n], then a horizontal seam is:
+
+\begin{equation}
+s^{y} = { \left\{ s_{j}^{y} \right\}  }_{j=1}^{m} = 
+{\left\{ (y(j),j) \right\}}_{j=1}^{m} ,s.t. \forall j \lvert y(j) - y(j - 1)  \rvert \leq 1
+\end{equation}
+
+The pixels of the path of seam $s$ (e.g. vertical seam $\left\{ s_{i} \right\}$ ) will therefore be $I_s = {\left\{ (I(s_i) \right\}}_{i=1}^{n} = {\left\{ I{ (x(i),i)) \right\}}_{i=1}^{n} $ . Note that similar to the removal of a row or column from an image, removing the pixels of a seam from an image has only a local effect: all the pixels of the image are shifted left (or up) to compensate for the missing path.
+
+
 
 
 \subsection{Dynamic Programming Algorithm}
@@ -116,7 +140,20 @@ M(i,j) = e(i,j) + min( M(i-1,j-1), M(i-1,j), M(i-1,j+1) )
 
 We repeat the above process for each segment, and then remove the newly found seams for each of them, hence resizing the picture.
 
-\subsection{Complexity}
+\subsection{Runtime}
+Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $o(s m n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
+With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So, for:
+$s_m = # of segments in m, e.g. 2 in naive example$
+$s_n = # of segments in n, e.g. 2 in naive example$
+$Total # of segments = s_m*s_n (4 in naive example)$
+$Total # of seams in each segment  = s/(s_m*s_n) (s/4 in naive example
+Dimension of segmented =  m*n/(s_m*s_n) ( m*n / 4 in naive)$
+$Total Running time for each segment = O( s*m*n / ((s_m*s_n)^2) ) (naive $ example: O (s*m*n / 16))
+
+$Total running time of each segment serially = (s_m*s_n) * O( s*m*n / ((s_m*s_n)^2) ) 
+O( (s*m*n)/(s_m*s_n) ) naive example: 4 * O (s*m*n/16) = O(s*m*n/4) - when run serially$
+When run concurrently we can achieve speed increases up to O(s*m*n/16) ?
+
 
 
 \subsection{Implementation}
