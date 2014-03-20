@@ -83,18 +83,18 @@ Seam carving deals with the task of taking an input picture and resizing it to f
 \section{Introduction}
 
 With the recent advances in imaging technology, digital images have become an important component of media distribution. Images are frequently used in news stories, and people post their pictures online to be seen by family and friends. Images, however, are typically authored once, but need to be adapted for consumption under varied conditions. As an example, pictures are often displayed on different screens, where the area available for the picture may have a different aspect ratio than the original image has for layout reasons. Dynamically changing the layout of web pages in browsers should take into account the distribution of text and images, resizing them if necessary. The use of thumbnails that faithfully represent the image content is important in image browsing applications. In addition, a variety of displays can be used for image viewing, ranging from high-resolution computer monitors to TV screens and low-resolution mobile devices. This diversity of image consumption conditions introduces a new problem: images must be resized for optimal
-display or use in different applications. The process, also known as image re-targeting or image resizing, consists of modifying the image’s aspect ratio and size in order to best satisfy the new requirements. However,
-straightforward image resizing operators, such as scaling, often do not produce satisfactory results, since they are oblivious to image content. To overcome this limitation, a class of techniques attempt to resize the images in a content-aware fashion, i.e., taking the image content into consideration to preserve important regions and minimize distortions. This is a challenging problem, as it requires preserving the relevant information while maintaining an aesthetically pleasing image for the user.
+display or use in different applications. The process, also known as image re-targeting or image resizing, consists of modifying the image’s aspect ratio and size in order to best satisfy the new requirements. However, straightforward image resizing operators, such as scaling, often do not produce satisfactory results, since they are oblivious to image content. To overcome this limitation, a class of techniques attempt to resize the images in a content-aware fashion, i.e., taking the image content into consideration to preserve important regions and minimize distortions. This is a challenging problem, as it requires preserving the relevant information while maintaining an aesthetically pleasing image for the user.
 
-One of those techniques is Seam Carving, where the general idea is to decrease the image width (or height) one pixel at a time, by removing a seam of minimal importance. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed
-seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact. 
-
-In the original paper, the optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can be used for enlarging the image, by finding seams to be removed and duplicating them. It produces impressive results when there are enough low-importance seams to be removed, but creates distortions and artifacts when seams cut through important areas.
-
-Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. There are other methods that rely on segmentation to assign saliencies to different regions in the image. Previous work by ~\cite{Liu2007} and ~\cite{Hasan2009} suggests to segment the image into regions and then assign saliencies to each region by considering heuristics such as the region size, position in the image, and relationships between neighboring regions. ~\cite{Setlur2005} proposed to segment the image using mean-shift and assign saliencies to the obtained regions by a combination of bottom-up and top-down features. Also, ~\cite{Avidan2007} ,authors of the original Seam Carving algorithm, suggested that users could scribble on salient areas. 
+One of those techniques is Seam Carving, where the general idea is to decrease the image width (or height) one pixel at a time, by removing a seam of minimal importance. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact. 
 
 To summarize, our goal is to experiment with different combinations of Seam Carving and image segmentation, and by so to improve the results of the original paper.
 
+
+\section{Prior and Related Work}
+
+In the original paper ~\cite{Avidan2007}, the optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can be used for enlarging the image, by finding seams to be removed and duplicating them. It produces impressive results when there are enough low-importance seams to be removed, but creates distortions and artifacts when seams cut through important areas.
+
+Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. There are other methods that rely on segmentation to assign saliencies to different regions in the image. Previous work by ~\cite{Liu2007} and ~\cite{Hasan2009} suggests to segment the image into regions and then assign saliencies to each region by considering heuristics such as the region size, position in the image, and relationships between neighboring regions. ~\cite{Setlur2005} proposed to segment the image using mean-shift and assign saliencies to the obtained regions by a combination of bottom-up and top-down features. Also, ~\cite{Avidan2007} ,authors of the original Seam Carving algorithm, suggested that users could scribble on salient areas. 
 
 \section{Technical details}
 
@@ -110,7 +110,7 @@ e_I(I)=   \lvert \frac{\partial}{\partial x} I \rvert + \lvert  \frac{\partial}{
 \rvert 
 \end{equation}
 
-we need a resizing operator that will be less restrictive than cropping or column removal, but can preserve the image content better than single pixel removals. This leads to our strategy of seam carving and the definition of image seams. Let $I$ be and $n x m $ image and define a vertical seam to be:
+we need a resizing operator that will be less restrictive than cropping or column removal, but can preserve the image content better than single pixel removals. This leads to our strategy of seam carving and the definition of image seams. Let $I$ be and $n \times m $ image and define a vertical seam to be:
 
 \begin{equation}
 s^{x} = { \left\{ s_{i}^{x} \right\}  }_{i=1}^{n} = 
@@ -124,9 +124,7 @@ s^{y} = { \left\{ s_{j}^{y} \right\}  }_{j=1}^{m} =
 {\left\{ (y(j),j) \right\}}_{j=1}^{m} ,s.t. \forall j \lvert y(j) - y(j - 1)  \rvert \leq 1
 \end{equation}
 
-The pixels of the path of seam $s$ (e.g. vertical seam $\left\{ s_{i} \right\}$ ) will therefore be $I_s = {\left\{ (I(s_i) \right\}}_{i=1}^{n} = {\left\{ I{ (x(i),i)) \right\}}_{i=1}^{n} $ . Note that similar to the removal of a row or column from an image, removing the pixels of a seam from an image has only a local effect: all the pixels of the image are shifted left (or up) to compensate for the missing path.
-
-
+The pixels of the path of seam $s$ (e.g. vertical seam $\left\{ s_{i} \right\}$ ) will therefore be $I_s = {\left\{ (I(s_i) \right\}}_{i=1}^{n} = {\left\{ I{ (x(i),i)) \right\}}_{i=1}^{n} $  . Note that similar to the removal of a row or column from an image, removing the pixels of a seam from an image has only a local effect: all the pixels of the image are shifted left (or up) to compensate for the missing path.
 
 
 \subsection{Dynamic Programming Algorithm}
@@ -140,13 +138,33 @@ M(i,j) = e(i,j) + min( M(i-1,j-1), M(i-1,j), M(i-1,j+1) )
 
 We repeat the above process for each segment, and then remove the newly found seams for each of them, hence resizing the picture.
 
+\subsection{Algorithm Outline}
+Our approach:
+
+\begin{itemize}
+  \item Divide the original image into equally sized images and run the original seam carving algorithm.
+  \item From each segmented image remove half the number of seams from the original image. This can be done horizontally, vertically, or both, creating a grid like segmentation.
+  \item This can be done horizontally, vertically, or both, creating a grid like segmentation.
+\end{itemize}
+
+From the original Seam Carving algorithm:
+\begin{enumerate}
+  \item Calculate energy map ~ $O(m n)$
+  \item Find seam of lowest energy ~ $O(m n)$
+  \item Remove seam / Add seam ~ $O(m n)$
+  \item Repeat 1-3 until image is resized
+\end{enumerate}
+
+
 \subsection{Runtime}
 Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $o(s m n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
-With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So, for:
-$s_m = # of segments in m, e.g. 2 in naive example$
-$s_n = # of segments in n, e.g. 2 in naive example$
-$Total # of segments = s_m*s_n (4 in naive example)$
-$Total # of seams in each segment  = s/(s_m*s_n) (s/4 in naive example
+With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. 
+
+
+$s_m = num of segments in m, e.g. 2 in naive example$
+$s_n = num of segments in n, e.g. 2 in naive example$
+$Total num of segments = s_m*s_n (4 in naive example)$
+$Total num of seams in each segment  = s/(s_m*s_n) (s/4 in naive example
 Dimension of segmented =  m*n/(s_m*s_n) ( m*n / 4 in naive)$
 $Total Running time for each segment = O( s*m*n / ((s_m*s_n)^2) ) (naive $ example: O (s*m*n / 16))
 
@@ -158,6 +176,9 @@ When run concurrently we can achieve speed increases up to O(s*m*n/16) ?
 
 \subsection{Implementation}
 
+We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expend the code to support image segmentation. Hence we rewrote the original and segmentation expansion of in python. 
+
+Access to the code is available through our paper website  \href{http://cs269uclawinter2014.wordpress.com/}{website}
 
 
 
