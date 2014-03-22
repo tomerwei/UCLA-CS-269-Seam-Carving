@@ -24,11 +24,19 @@
 \newblock ACM Intl. Conf. on Mobile and Ubiquitous Multimedia: 59--68
 
 
-\bibitem[\protect\citename{Avidan et~al\mbox{.} }2005]{Avidan2007}
+\bibitem[\protect\citename{Avidan et~al\mbox{.} }2007]{Avidan2007}
 {\sc Avidan, S. and Shamir, A.}
 \newblock 2007.
 \newblock Seam carving for content-aware image resizing
 \newblock Proc. of SIGGRAPH 26(3), 10
+
+
+\bibitem[\protect\citename{Liu et~al\mbox{.} }2010]{Liu2010}
+{\sc Liu, L., Chen, R., Wolf, L., and Cohen-Or, D.}
+\newblock 2010.
+\newblock Optimizing photo composition
+\newblock {\em Computer Graphics Forum
+(Proc. of Eurographics) 29(2)}, 469--478.
 
 
 \bibitem[\protect\citename{Park et~al\mbox{.} }2006]{Park:2006:DSI}
