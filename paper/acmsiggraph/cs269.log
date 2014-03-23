@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  22 MAR 2014 15:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  22 MAR 2014 22:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -380,8 +380,14 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 11.03998pt on input line 47.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 50.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 50.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 8.27998pt on input line 50.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
@@ -389,55 +395,28 @@ Missing character: There is no ” in font ptmr7t!
 
 
 ]
-<images/bird_magic.jpg, id=25, 327.2225pt x 426.59375pt>
+<images/bird_magic.jpg, id=32, 327.2225pt x 426.59375pt>
 File: images/bird_magic.jpg Graphic file (type jpg)
 
 <use images/bird_magic.jpg>
-Package pdftex.def Info: images/bird_magic.jpg used on input line 112.
+Package pdftex.def Info: images/bird_magic.jpg used on input line 116.
 (pdftex.def)             Requested size: 108.405pt x 141.32315pt.
 
-<images/bird_magic_226x375.jpg, id=26, 226.8475pt x 376.40625pt>
+<images/bird_magic_226x375.jpg, id=33, 226.8475pt x 376.40625pt>
 File: images/bird_magic_226x375.jpg Graphic file (type jpg)
 
 <use images/bird_magic_226x375.jpg>
-Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 113.
+Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 117.
 (pdftex.def)             Requested size: 108.405pt x 179.87459pt.
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 134.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 134.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 9.19998pt on input line 134.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no † in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.162 ..._{i=1}^{n} = {\left\{ I{ (x(i),i)) \right
-                                                  \}}_{i=1}^{n} $  . Note th...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
 
 Overfull \hbox (7.76274pt too wide) detected at line 172
 \OML/cmm/m/it/9 M\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i; j\OT1/cmr/m/n/9 ) = \OML/cm
@@ -460,49 +439,49 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 180.
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 []$\OML/cmm/m/it/9 s[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 numofsegmentsinm; e:g:\
 OT1/cmr/m/n/9 2\OML/cmm/m/it/9 innaiveexample$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 \OML/cmm/m/it/9 s[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 numofsegmentsinn; e:g:\OT1
 /cmr/m/n/9 2\OML/cmm/m/it/9 innaiveexample$
  []
 
 
-Underfull \hbox (badness 7963) in paragraph at lines 199--205
+Underfull \hbox (badness 7963) in paragraph at lines 203--209
 \OML/cmm/m/it/9 Totalnumofsegments \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 s[] \OMS/cm
 sy/m/n/9 ^^C \OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 (4\OML/cmm/m/it/9 innaiveexample
 \OT1/cmr/m/n/9 )$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 \OML/cmm/m/it/9 Totalnumofseamsineachsegment \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 s
 =\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 s[] \OMS/cmsy/m/n/9 ^^C
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 \OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 )(\OML/cmm/m/it/9 s=\OT1/cmr/m/n/9 4\OML/cmm/
 m/it/9 innaiveexampleDimensionofsegmented \OT1/cmr/m/n/9 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 \OML/cmm/m/it/9 m \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 n=\OT1/cmr/m/n/9 (\OML/cm
 m/m/it/9 s[] \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 )(\OML/cmm/m
 /it/9 m \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 n=\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 i
 nnaive\OT1/cmr/m/n/9 )$
  []
 
-<images/samplefigure.pdf, id=56, 101.37875pt x 101.37875pt>
+<images/samplefigure.pdf, id=66, 101.37875pt x 101.37875pt>
 File: images/samplefigure.pdf Graphic file (type pdf)
 
 <use images/samplefigure.pdf>
-Package pdftex.def Info: images/samplefigure.pdf used on input line 258.
+Package pdftex.def Info: images/samplefigure.pdf used on input line 263.
 (pdftex.def)             Requested size: 108.405pt x 108.40765pt.
  [3 <./images/samplefigure.pdf>] (./cs269.bbl
 Underfull \hbox (badness 1360) in paragraph at lines 50--56
@@ -511,22 +490,22 @@ y.
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
  [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (./cs269.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 345.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 350.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 7045 strings out of 495059
- 105906 string characters out of 3182030
- 200005 words of memory out of 3000000
- 10102 multiletter control sequences out of 15000+200000
- 24968 words of font info for 53 fonts, out of 3000000 for 9000
+ 7062 strings out of 495059
+ 106096 string characters out of 3182030
+ 200006 words of memory out of 3000000
+ 10105 multiletter control sequences out of 15000+200000
+ 26110 words of font info for 55 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,11n,40p,1829b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,11n,40p,1421b,339s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-d
@@ -538,10 +517,10 @@ rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on cs269.pdf (4 pages, 232389 bytes).
+Output written on cs269.pdf (4 pages, 232763 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
+ 148 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
