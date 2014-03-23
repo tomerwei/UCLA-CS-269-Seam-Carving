@@ -69,7 +69,7 @@ Seam carving deals with the task of taking an input picture and resizing it to f
   
   \CRcat{I.4.10}{Computing Methodologies}{Image Processing And Computer Vision}{Image Representation};     
   
-\end{CRcatlist}
+\end{CRcatlist}accuracy
 
 \keywordlist
 
@@ -94,7 +94,13 @@ This diversity of image consumption conditions introduces a new problem: images 
 There are numerous ways to define importance in media. ~\cite{Liu2010} proposed an approach for changing the composition of objects in a given image in order to improve its aesthetic value, based on rules of thumb from photography such as the rule of thirds. Furthermore, other solutions have been contributed by the computer vision, computer graphics, and human-computer interaction
 communities. The definition of \emph{important} can depend on the specific application being considered. There are different approaches for defining importance measures that specify the level of importance of pixels in the image. Also, the definition of what is important and what is unimportant is clearly subjective -- there are situations where user interaction is unavoidable, and many techniques support the specification of important areas as an input provided by the user.
 
-\underline{Copy figure from Vaquero and discuss}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=3.2in]{images/retargeting}
+  \caption{Sample illustration.}
+\end{figure}
+
+% %\underline{Copy figure from Vaquero and discuss}
 
 \paragraph{}
 One of those techniques is image retargeting techniques Seam Carving, where the general idea is to decrease the image width (or height) one pixel at a time, by removing a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact. 
