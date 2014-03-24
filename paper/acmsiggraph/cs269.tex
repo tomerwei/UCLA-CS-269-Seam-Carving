@@ -90,17 +90,16 @@ With the recent advances in imaging technology, digital images have become an im
 \paragraph{}
 This diversity of image consumption conditions introduces a new problem: images must be resized for optimal display or use in different applications. The process, also known as image re-targeting or image resizing, consists of modifying the image's aspect ratio and size in order to best satisfy the new requirements.  The common approach for all media resizing works is first to define an importance map on the pixels of the media, and then use this map to guide some operator that reduces (or enlarges) the media size. However, straightforward image resizing operators, such as scaling, often do not produce satisfactory results, since they are oblivious to image content. To overcome this limitation, a class of techniques attempt to resize the images in a content-aware fashion, i.e., taking the image content into consideration to preserve important regions and minimize distortions. This is a challenging problem, as it requires preserving the relevant information while maintaining an aesthetically pleasing image for the user.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=3.2in]{images/retargeting}
+  \caption{The image retargeting steps.}
+\end{figure}
+
 \paragraph{}
 There are numerous ways to define importance in media. ~\cite{Liu2010} proposed an approach for changing the composition of objects in a given image in order to improve its aesthetic value, based on rules of thumb from photography such as the rule of thirds. Furthermore, other solutions have been contributed by the computer vision, computer graphics, and human-computer interaction
 communities. The definition of \emph{important} can depend on the specific application being considered. There are different approaches for defining importance measures that specify the level of importance of pixels in the image. Also, the definition of what is important and what is unimportant is clearly subjective -- there are situations where user interaction is unavoidable, and many techniques support the specification of important areas as an input provided by the user.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=3.2in]{images/retargeting}
-  \caption{Sample illustration.}
-\end{figure}
-
-% %\underline{Copy figure from Vaquero and discuss}
 
 \paragraph{}
 One of those techniques is image retargeting techniques Seam Carving, where the general idea is to decrease the image width (or height) one pixel at a time, by removing a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact. 
@@ -180,15 +179,8 @@ M(i,j) = e(i,j) + min( M(i-1,j-1), M(i-1,j), M(i-1,j+1) )
 We repeat the above process for each segment, and then remove the newly found seams for each of them, hence resizing the picture.
 
 \subsection{Algorithm Outline}
-Our approach:
 
-\begin{itemize}
-  \item Divide the original image into equally sized images and run the original seam carving algorithm.
-  \item From each segmented image remove half the number of seams from the original image. This can be done horizontally, vertically, or both, creating a grid like segmentation.
-  \item This can be done horizontally, vertically, or both, creating a grid like segmentation.
-\end{itemize}
-
-From the original Seam Carving algorithm:
+We build upon the original method ~\cite{Avidan2007}:
 \begin{enumerate}
   \item Calculate energy map ~ $O(m n)$
   \item Find seam of lowest energy ~ $O(m n)$
@@ -196,25 +188,32 @@ From the original Seam Carving algorithm:
   \item Repeat 1-3 until image is resized
 \end{enumerate}
 
+By using the same algorithm on different segements of the image:
 
-\subsection{Runtime}
+\begin{itemize}
+  \item Divide the original image into equally sized images and run the original seam carving algorithm.
+  \item From each segmented image remove half the number of seams from the original image. This can be done horizontally, vertically, or both, creating a grid like segmentation.
+  \item This can be done horizontally, vertically, or both, creating a grid like segmentation.
+\end{itemize}
+
+
+
+
+\subsection{Complexity}
 
 \paragraph{}
 Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $o(s m n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
 
 \paragraph{}
-With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. 
-
-
-$s_m = num of segments in m, e.g. 2 in naive example$
-$s_n = num of segments in n, e.g. 2 in naive example$
-$Total num of segments = s_m*s_n (4 in naive example)$
-$Total num of seams in each segment  = s/(s_m*s_n) (s/4 in naive example
-Dimension of segmented =  m*n/(s_m*s_n) ( m*n / 4 in naive)$
-$Total Running time for each segment = O( s*m*n / ((s_m*s_n)^2) ) (naive $ example: O (s*m*n / 16))
+With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. So the total number of segments equals to $s_m s_n$, and total number of seams in each segment is $s/(s_m s_n).$ 
+Total Running time for each segment = $O( s*m*n / ((s_m*s_n)^2) )$ naive example: O (s*m*n / 16))
 
 $Total running time of each segment serially = (s_m*s_n) * O( s*m*n / ((s_m*s_n)^2) ) 
 O( (s*m*n)/(s_m*s_n) ) naive example: 4 * O (s*m*n/16) = O(s*m*n/4) - when run serially$
+
+For example, when $s_m,s_n=2$, we get $s/4$ and 
+
+
 When run concurrently we can achieve speed increases up to O(s*m*n/16) ?
 
 
@@ -227,9 +226,24 @@ We initially implemented the original Seam Carving algorithm in Java, but encoun
 Access to the code is available through our paper website  \href{http://cs269uclawinter2014.wordpress.com/}{website}
 
 
+\section{Experimental Results}
+
+We took a number of images, some of which were used previous papers, varying from feature rich images to images that show great results with the original seam carving method. All experiments were run on a standard home laptop, equivalent to MacBook Air.
 
 
-\section{Exposition}
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=3.5in]{images/beach_results}}   
+    \caption{Left -- Input image. Right -- output of segmented seam carving. Beach Image}
+    \label{materialflowChart}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=3.2in]{images/beach}
+%  \caption{Experiment runtime.}
+\end{figure}
+
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -264,18 +278,12 @@ aliquip ex ea commodo consequat. Duis aute irure dolor in
 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
+
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1.5in]{images/samplefigure}
   \caption{Sample illustration.}
 \end{figure}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -285,59 +293,35 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
-\section{Exposition}
+\section{Limitations}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+The proposed method is dependent on where the image is segmented. So if the segmentation cut through feature rich parts of the image, some details might be lost and artifacts might be created. For example, in the figure below:
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=1.5in]{images/hof}}   
+    \fbox{\includegraphics[width=1.5in]{images/hof_segemented}}
+    \caption{Left -- input image. Right -- output of segmented seam carving, artifacts created are circled.}
+    \label{fig:Beach_in_and_out}
+    
+\end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+We used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}. The artifacts are the results of the segmentation lines going through the coast line.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=1.5in]{images/hof_segemented_lines}}
+    \caption{Left -- input image. Right -- output of segmented seam carving, artifacts created are circled.}
+    \label{fig:Beach_lines}
+\end{figure}
 
-\section{Conclusion}
+Figure ~\ref{fig:Beach_in_and_out} illustrates the segmentation we used. We shall discuss how to pick better segmentation lines in the next section.
 
-There is much future work to be done in the area of image resizing and Seam Carving. We didn't have enough time to investigate other methods to segment a picture, like image saliency as shown in  
+
+\section{Conclusions and Future Work}
+
+In this paper we proposed a content-aware im-
+age resizing algorithm which builds upon the previous work by ~\cite{Avidan2007}. Our segmentation approach shows that there is much to be done in improving the speed runtime and performance of the original method. We didn't have enough time to investigate other methods to segment a picture, like image saliency as shown in  
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

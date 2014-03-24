@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  23 MAR 2014 11:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  24 MAR 2014 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,7 +283,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Info: Option `colorlinks' set `true' on input line 505.
 Package hyperref Info: Option `breaklinks' set `true' on input line 505.
 )
-(./cs269.aux)
+(./cs269.aux
+
+LaTeX Warning: Label `materialflowChart' multiply defined.
+
+)
 \openout1 = `cs269.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -392,11 +396,11 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
 
-<images/retargeting.png, id=5, 580.1675pt x 160.6pt>
+<images/retargeting.png, id=4, 580.1675pt x 160.6pt>
 File: images/retargeting.png Graphic file (type png)
 
 <use images/retargeting.png>
-Package pdftex.def Info: images/retargeting.png used on input line 99.
+Package pdftex.def Info: images/retargeting.png used on input line 95.
 (pdftex.def)             Requested size: 231.26378pt x 64.0183pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -409,26 +413,26 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/bird_magic.jpg Graphic file (type jpg)
 
 <use images/bird_magic.jpg>
-Package pdftex.def Info: images/bird_magic.jpg used on input line 122.
+Package pdftex.def Info: images/bird_magic.jpg used on input line 121.
 (pdftex.def)             Requested size: 108.405pt x 141.32315pt.
 
 <images/bird_magic_226x375.jpg, id=32, 226.8475pt x 376.40625pt>
 File: images/bird_magic_226x375.jpg Graphic file (type jpg)
 
 <use images/bird_magic_226x375.jpg>
-Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 123.
+Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 122.
 (pdftex.def)             Requested size: 108.405pt x 179.87459pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 140.
+(Font)              scaled to size 9.19998pt on input line 139.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 140.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 139.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
-(Font)              scaled to size 9.19998pt on input line 140.
+(Font)              scaled to size 9.19998pt on input line 139.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no † in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
  [2 <./images/bird_magic.jpg> <./images/bird_magic_226x375.jpg>]
-Overfull \hbox (7.76274pt too wide) detected at line 178
+Overfull \hbox (7.76274pt too wide) detected at line 177
 \OML/cmm/m/it/9 M\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i; j\OT1/cmr/m/n/9 ) = \OML/cm
 m/m/it/9 e\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i; j\OT1/cmr/m/n/9 ) + \OML/cmm/m/it/
 9 min\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 M\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i \OMS/cm
@@ -439,78 +443,83 @@ sy/m/n/9 ^^@ \OT1/cmr/m/n/9 1\OML/cmm/m/it/9 ; j \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m
  j \OT1/cmr/m/n/9 + 1))
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 186.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 194.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 194.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
-[]$\OML/cmm/m/it/9 s[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 numofsegmentsinm; e:g:\
-OT1/cmr/m/n/9 2\OML/cmm/m/it/9 innaiveexample$
+<images/beach_results.png, id=68, 801.99625pt x 298.11375pt>
+File: images/beach_results.png Graphic file (type png)
+
+<use images/beach_results.png>
+Package pdftex.def Info: images/beach_results.png used on input line 235.
+(pdftex.def)             Requested size: 252.94499pt x 94.02005pt.
+
+Overfull \hbox (18.79999pt too wide) in paragraph at lines 235--236
+[][] 
  []
 
+<images/beach.png, id=70, 500.87125pt x 202.7575pt>
+File: images/beach.png Graphic file (type png)
+ <use images/beach.png>
+Package pdftex.def Info: images/beach.png used on input line 243.
+(pdftex.def)             Requested size: 231.26378pt x 93.61917pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
-\OML/cmm/m/it/9 s[] \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 numofsegmentsinn; e:g:\OT1
-/cmr/m/n/9 2\OML/cmm/m/it/9 innaiveexample$
- []
-
-
-Underfull \hbox (badness 7963) in paragraph at lines 209--215
-\OML/cmm/m/it/9 Totalnumofsegments \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 s[] \OMS/cm
-sy/m/n/9 ^^C \OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 (4\OML/cmm/m/it/9 innaiveexample
-\OT1/cmr/m/n/9 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
-\OML/cmm/m/it/9 Totalnumofseamsineachsegment \OT1/cmr/m/n/9 = \OML/cmm/m/it/9 s
-=\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 s[] \OMS/cmsy/m/n/9 ^^C
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
-\OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 )(\OML/cmm/m/it/9 s=\OT1/cmr/m/n/9 4\OML/cmm/
-m/it/9 innaiveexampleDimensionofsegmented \OT1/cmr/m/n/9 =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--215
-\OML/cmm/m/it/9 m \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 n=\OT1/cmr/m/n/9 (\OML/cm
-m/m/it/9 s[] \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 s[]\OT1/cmr/m/n/9 )(\OML/cmm/m
-/it/9 m \OMS/cmsy/m/n/9 ^^C \OML/cmm/m/it/9 n=\OT1/cmr/m/n/9 4\OML/cmm/m/it/9 i
-nnaive\OT1/cmr/m/n/9 )$
- []
-
-<images/samplefigure.pdf, id=67, 101.37875pt x 101.37875pt>
+[3 <./images/beach_results.png> <./images/beach.png>]
+<images/samplefigure.pdf, id=94, 101.37875pt x 101.37875pt>
 File: images/samplefigure.pdf Graphic file (type pdf)
 
 <use images/samplefigure.pdf>
-Package pdftex.def Info: images/samplefigure.pdf used on input line 269.
+Package pdftex.def Info: images/samplefigure.pdf used on input line 284.
 (pdftex.def)             Requested size: 108.405pt x 108.40765pt.
- [3 <./images/samplefigure.pdf>] (./cs269.bbl
+ <images/hof.png, id=95, 524.96124pt x 337.26pt>
+File: images/hof.png Graphic file (type png)
+
+<use images/hof.png>
+Package pdftex.def Info: images/hof.png used on input line 302.
+(pdftex.def)             Requested size: 108.405pt x 69.64307pt.
+ <images/hof_segemented.png, id=96, 407.5225pt x 305.14pt>
+File: images/hof_segemented.png Graphic file (type png)
+
+<use images/hof_segemented.png>
+Package pdftex.def Info: images/hof_segemented.png used on input line 303.
+(pdftex.def)             Requested size: 108.405pt x 81.169pt.
+
+<images/hof_segemented_lines.png, id=98, 407.5225pt x 305.14pt>
+File: images/hof_segemented_lines.png Graphic file (type png)
+
+<use images/hof_segemented_lines.png>
+Package pdftex.def Info: images/hof_segemented_lines.png used on input line 313
+.
+(pdftex.def)             Requested size: 108.405pt x 81.169pt.
+ (./cs269.bbl
 Underfull \hbox (badness 1360) in paragraph at lines 50--56
 \OT1/ptm/m/n/9 accelerated re-light-ing en-gine for com-puter cin-e-matog-ra-ph
 y.
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
+ [4 <./images/samplefigure.pdf> <./images/hof.png> <./images/hof_segemented.png
+> <./images/hof_segemented_lines.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
  (./cs269.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 356.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 340.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
  ) 
 Here is how much of TeX's memory you used:
- 7068 strings out of 495059
- 106235 string characters out of 3182030
- 201006 words of memory out of 3000000
- 10109 multiletter control sequences out of 15000+200000
+ 7099 strings out of 495059
+ 106952 string characters out of 3182030
+ 201355 words of memory out of 3000000
+ 10131 multiletter control sequences out of 15000+200000
  26110 words of font info for 55 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  43i,11n,40p,1421b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -525,10 +534,10 @@ rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on cs269.pdf (4 pages, 243476 bytes).
+Output written on cs269.pdf (4 pages, 1681768 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 170 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
