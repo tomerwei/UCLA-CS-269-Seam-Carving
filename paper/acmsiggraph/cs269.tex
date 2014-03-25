@@ -114,19 +114,18 @@ To summarize, our goal is to experiment with different combinations of Seam Carv
 The seam carving technique by ~\cite{Avidan2007} is a popular, recently developed approach for content-aware image resizing. The general idea is to decrease the image width (or height) one pixel at a time,  by removing a seam of minimal importance. Intuitively, if the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. The image changes only at the seam region, while the other areas remain intact. ~\cite{Avidan2007} observe that using gradient energy as the importance map gives satisfactory results, but other importance measures could be used, such as saliency map, entropy, and histograms of oriented gradients. The optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can also be used for enlarging the image, by finding seams to be removed and duplicating them. 
 
 \paragraph{}
-The best outcome is when there are enough low-importance seams to be removed, since it creates distortions and artifacts when seams cut through important areas. Moreover, since the energy function reflects feature strength only along to the axes  of image coordinate, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we prepared an image which is obviously feature rich. Based on the method of ~\cite{Avidan2007}, let us attempt to resize this image both in the horizontal and vertical direction:
+The best outcome is when there are enough low-importance seams to be removed, since it creates distortions and artifacts when seams cut through important areas. Moreover, since the energy function reflects feature strength only along to the axes  of image coordinate, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we prepared an image which is obviously feature rich. Based on the method of ~\cite{Avidan2007}, we attempt to resize this image both in the horizontal and vertical direction, as seen in Figure \ref{fig:orgSeamCarving}
 
 
 \begin{figure}[ht]       
     \fbox{\includegraphics[width=1.5in]{images/bird_magic}}   
     \fbox{\includegraphics[width=1.5in]{images/bird_magic_226x375}}
-    \caption{this is the caption}
-    \label{materialflowChart}
+    \caption{Left -- original image. Right -- resized image, result of original Seam Carving method (enlarged). }
+    \label{fig:orgSeamCarving}
 \end{figure}
 
 
-% %change math stuff from here
-Here, we use $I(x)$ to denote the input image, where $x = (x, y)$. As you could see, there are artifacts from result from pixels removed from both players hands and legs.
+ As you could see in Figure \ref{fig:orgSeamCarving}, there are artifacts from result from pixels removed from both players hands and legs. So shows us that there is much room for improving the original method.
 
 \paragraph{}
 In  ~\cite{Avidan2007}, the optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can be used for enlarging the image, by finding seams to be removed and duplicating them. It produces impressive results when there are enough low-importance seams to be removed, but creates distortions and artifacts when seams cut through important areas.
@@ -142,7 +141,7 @@ Motivated by the compelling applications and the challenges related to the probl
 Our method builds upon the basis of the original seam carving algorithm, where we the laplacian to find the energy levels of each pixel in the input image. After finding the energy levels, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then the we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.
 
 \subsection{Image Energy}
-Our initial approach, similar to the original paper, is to preserve the image's energy, by removing unnoticeable pixels. That leads to the following energy function that was used in the original paper:
+Our initial approach, similar to the original paper, is to preserve the image's energy, by removing unnoticeable pixels. That leads to the following energy function that was used in the original paper. We use $I(x)$ to denote the input image, where $x = (x, y)$. 
 
 \begin{equation}
 e_I(I)=   \lvert \frac{\partial}{\partial x} I \rvert + \lvert  \frac{\partial}{\partial y} I 
@@ -258,7 +257,7 @@ Finally, we notice that as we segment to smaller and smaller parts, black artifa
 
 \section{Limitations}
 
-The proposed method is dependent on where the image is segmented. So if the segmentation cut through feature rich parts of the image, some details might be lost and artifacts might be created. For example, in the figure below:
+The proposed method is dependent on where the image is segmented. So if the segmentation cut through feature rich parts of the image, some details might be lost and artifacts might be created. 
 
 \begin{figure}[ht]       
     \fbox{\includegraphics[width=1.5in]{images/hof}}   
@@ -268,7 +267,7 @@ The proposed method is dependent on where the image is segmented. So if the segm
     
 \end{figure}
 
-We used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}. The artifacts are the results of the segmentation lines going through the coast line.
+For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}. The artifacts are the results of the segmentation lines going through the coast line.
 
 
 \begin{figure}[ht]       
@@ -282,26 +281,22 @@ Figure ~\ref{fig:Beach_in_and_out} illustrates the segmentation we used. We shal
 
 \section{Conclusions and Future Work}
 
+\paragraph{}
 In this paper we proposed a content-aware im-
-age resizing algorithm which builds upon the previous work by ~\cite{Avidan2007}. Our segmentation approach shows that there is much to be done in improving the speed runtime and performance of the original method. We didn't have enough time to investigate other methods to segment a picture, like image saliency as shown in  
+age resizing algorithm which builds upon the previous work by ~\cite{Avidan2007}. Our segmentation approach shows that there is much to be done in improving the speed runtime and performance of the original method. We didn't have enough time to investigate other methods to segment a picture, like image saliency as shown in ~\cite{Liu2007} and ~\cite{Hasan2009}. Here are some points that we think are worth investigating in future work:
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Add ti bib:
-
-% 
-M. Rubinstein, A. Shamir, and S. Avidan, "Multi-operator media retargeting," ACM Transaction on Graphics, vol. 28, no. 3, pp. 23:1-23:11, 2009. 
-% %Y. Pritch, E. Kav-Venaki and S. Peleg, &ldquo,Shift Map Image Editing,&rdquo, Proc. 12th IEEE Int',l Conf. Computer Vision, pp. 151-158, 2009.Using Forward Energy
-J. Stultz, Seam Carving, Parallelizing a novel new image resizing algorithm
-R. Achanta and S. Susstrunk, Saliency Detection for Content-aware Image Resizing, IEEE International Conference on Image Processing, 2009.
+\begin{itemize}
+  \item Allowing segmentation into non-rectangular regions could lead to better results, especially if the segmentation fits the features and image energy map, so the seams that we create will only carve through these regions, thereby reducing artifacts in the output resized image.
+  \item Flexible user input for segmentation is also one possible improvement for segmented Seam Carving -- the user will be able to arrange the segments, and also mark areas of importance in the image so that the seam will skip them, thus avoiding  artifacts. 
+  \item Parallelizing our python implementation for greater speed increase.
+  \item As wee in Figure \ref{fig:bird3232}, some artifacts are created between the different segments. Applying a small smoothing operator to areas in between segments to reduce artifacts could lead to better results.
+  \item Using forward instead of backward energy, so that instead of removing seams with lowest energy, we remove seam which leaves the image with highest energy.
+  \item Applying the saliency filter before seam carving to emphasize areas to minimize distortion.  
+\end{itemize}
 
 
+\paragraph{}
+Finally, there is always room for testing on more images, and trying different energy filters, since the results tend to be subjective by nature. There are further ways to utilize image segmentation to improve image resizing in large and specifically the Seam Carving method, and conducting more experiments and getting input from users is essential in refining this technique. 
 
 \bibliographystyle{acmsiggraph}
 \bibliography{template}
