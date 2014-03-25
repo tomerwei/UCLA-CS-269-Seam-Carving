@@ -205,23 +205,18 @@ By using the same algorithm on different segements of the image:
 Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $o(s m n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
 
 \paragraph{}
-With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. So the total number of segments equals to $s_m s_n$, and total number of seams in each segment is $s/(s_m s_n).$ 
-Total Running time for each segment = $O( s*m*n / ((s_m*s_n)^2) )$ naive example: O (s*m*n / 16))
-
-$Total running time of each segment serially = (s_m*s_n) * O( s*m*n / ((s_m*s_n)^2) ) 
-O( (s*m*n)/(s_m*s_n) ) naive example: 4 * O (s*m*n/16) = O(s*m*n/4) - when run serially$
-
-For example, when $s_m,s_n=2$, we get $s/4$ and 
+With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. So the total number of segments equals to $s_m s_n$, and total number of seams in each segment is $\frac{s}{s_m s_n} $, where $s$ is the absolute difference between the images old width and new width, or equivalently the total number of seams that we add or remove. Total running time for each segment is $ \frac{s m n}{(s_m*s_n)^2} $.
 
 
-When run concurrently we can achieve speed increases up to O(s*m*n/16) ?
+\paragraph{}
+Total running time of each segment serially equals to $ s_m s_n   \frac{ O( s m n ) }{ ( s_m s_n)^2  }$. For example, when we segment the image into 4 parts, we get $s_m,s_n=2$, and $\frac{s}{4}$. So in this case: $\frac{O(s*m*n)}{16}$, and the the total running time for each segment is $4 * \frac{O (s m n)}{16} = \frac{O(s m n)}{4}$, which runs serially. But there is potential for a significant speedup if we run the algorithm concurrently -- up to $\frac{O(s*m*n)}{16}$.
 
 
 
 \subsection{Implementation}
 
 \paragraph{}
-We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expend the code to support image segmentation. Hence we rewrote the original and segmentation expansion of in python. 
+We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expend the code to support image segmentation. Therefore we rewrote the original and segmentation expansion of in python. 
 
 Access to the code is available through our paper website  \href{http://cs269uclawinter2014.wordpress.com/}{website}
 
@@ -241,57 +236,24 @@ We took a number of images, some of which were used previous papers, varying fro
 \begin{figure}[ht]
   \centering
   \includegraphics[width=3.2in]{images/beach}
-%  \caption{Experiment runtime.}
+  \caption{ Run-times}
+  \label{fig:runtimes}
 \end{figure}
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+As we see in Figure \ref{fig:runtimes}, segmenting images into equally sized segments results in a much faster running algorithm, even if the algorithm runs serially. We also observed that by increasing number of grid segments we speed up the algorithm, and decrease artifacts within an image, as seen in Figure \ref{fig:bird3232}.
 
-\begin{equation}
- \sum_{j=1}^{z} j = \frac{z(z+1)}{2}
-\end{equation}
-
-\begin{eqnarray}
-x & \ll & y_{1} + \cdots + y_{n} \\
-  & \leq & z
-\end{eqnarray}
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=1.5in]{images/samplefigure}
-  \caption{Sample illustration.}
+  \includegraphics[width=1.8in]{images/bird_32by32}
+  \caption{ Segmented Seam Carving(30x30)
+  }
+  \label{fig:bird3232}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+
+Finally, we notice that as we segment to smaller and smaller parts, black artifacts appear in the images edges. We hypothesize that this is a byproduct of our implementation, but could yet confirm it fully.
 
 
 \section{Limitations}
@@ -331,9 +293,15 @@ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 
-\section*{Acknowledgements}
+Add ti bib:
 
-To Robert, for all the bagels.
+% 
+M. Rubinstein, A. Shamir, and S. Avidan, "Multi-operator media retargeting," ACM Transaction on Graphics, vol. 28, no. 3, pp. 23:1-23:11, 2009. 
+% %Y. Pritch, E. Kav-Venaki and S. Peleg, &ldquo,Shift Map Image Editing,&rdquo, Proc. 12th IEEE Int',l Conf. Computer Vision, pp. 151-158, 2009.Using Forward Energy
+J. Stultz, Seam Carving, Parallelizing a novel new image resizing algorithm
+R. Achanta and S. Susstrunk, Saliency Detection for Content-aware Image Resizing, IEEE International Conference on Image Processing, 2009.
+
+
 
 \bibliographystyle{acmsiggraph}
 \bibliography{template}
