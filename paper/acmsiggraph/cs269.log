@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  25 MAR 2014 16:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.3.13)  25 MAR 2014 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -427,8 +427,21 @@ LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no † in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
- [2 <./images/bird_magic.jpg> <./images/bird_magic_226x375.jpg>]
-Overfull \hbox (7.76274pt too wide) detected at line 176
+ [2 <./images/bird_magic.jpg> <./images/bird_magic_226x375.jpg>] <images/seam.p
+ng, id=70, 332.24126pt x 282.05376pt>
+File: images/seam.png Graphic file (type png)
+
+<use images/seam.png>
+Package pdftex.def Info: images/seam.png used on input line 175.
+(pdftex.def)             Requested size: 151.76744pt x 128.8425pt.
+ <images/seam_alg.png, id=71, 523.9575pt x 210.7875pt>
+File: images/seam_alg.png Graphic file (type png)
+
+<use images/seam_alg.png>
+Package pdftex.def Info: images/seam_alg.png used on input line 182.
+(pdftex.def)             Requested size: 151.76744pt x 61.05605pt.
+
+Overfull \hbox (7.76274pt too wide) detected at line 192
 \OML/cmm/m/it/9 M\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i; j\OT1/cmr/m/n/9 ) = \OML/cm
 m/m/it/9 e\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i; j\OT1/cmr/m/n/9 ) + \OML/cmm/m/it/
 9 min\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 M\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 i \OMS/cm
@@ -439,82 +452,84 @@ sy/m/n/9 ^^@ \OT1/cmr/m/n/9 1\OML/cmm/m/it/9 ; j \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m
  j \OT1/cmr/m/n/9 + 1))
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 193.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 209.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 209.
 
-Underfull \hbox (badness 5592) in paragraph at lines 211--212
+Underfull \hbox (badness 5592) in paragraph at lines 225--226
  [][] \OT1/ptm/m/n/9 To-tal run-ning time of each seg-ment se-ri-ally equals to
 
  []
 
-<images/beach_results.png, id=70, 801.99625pt x 298.11375pt>
+<images/beach_results.png, id=74, 801.99625pt x 298.11375pt>
 File: images/beach_results.png Graphic file (type png)
 
 <use images/beach_results.png>
-Package pdftex.def Info: images/beach_results.png used on input line 229.
+Package pdftex.def Info: images/beach_results.png used on input line 243.
 (pdftex.def)             Requested size: 252.94499pt x 94.02005pt.
 
-Overfull \hbox (18.79999pt too wide) in paragraph at lines 229--230
+Overfull \hbox (18.79999pt too wide) in paragraph at lines 243--244
 [][] 
  []
 
-<images/beach.png, id=72, 500.87125pt x 202.7575pt>
+<images/beach.png, id=76, 500.87125pt x 202.7575pt>
 File: images/beach.png Graphic file (type png)
  <use images/beach.png>
-Package pdftex.def Info: images/beach.png used on input line 237.
+Package pdftex.def Info: images/beach.png used on input line 251.
 (pdftex.def)             Requested size: 231.26378pt x 93.61917pt.
 
-<images/bird_32by32.png, id=75, 248.93pt x 412.54124pt>
+[3 <./images/seam.png> <./images/seam_alg.png> <./images/beach_results.png>]
+<images/bird_32by32.png, id=104, 248.93pt x 412.54124pt>
 File: images/bird_32by32.png Graphic file (type png)
 
 <use images/bird_32by32.png>
-Package pdftex.def Info: images/bird_32by32.png used on input line 248.
+Package pdftex.def Info: images/bird_32by32.png used on input line 262.
 (pdftex.def)             Requested size: 130.08621pt x 215.5928pt.
- <images/hof.png, id=76, 524.96124pt x 337.26pt>
+ <images/hof.png, id=105, 524.96124pt x 337.26pt>
 File: images/hof.png Graphic file (type png)
 
 <use images/hof.png>
-Package pdftex.def Info: images/hof.png used on input line 263.
+Package pdftex.def Info: images/hof.png used on input line 277.
 (pdftex.def)             Requested size: 108.405pt x 69.64307pt.
- <images/hof_segemented.png, id=77, 407.5225pt x 305.14pt>
+
+<images/hof_segemented.png, id=106, 407.5225pt x 305.14pt>
 File: images/hof_segemented.png Graphic file (type png)
 
 <use images/hof_segemented.png>
-Package pdftex.def Info: images/hof_segemented.png used on input line 264.
+Package pdftex.def Info: images/hof_segemented.png used on input line 278.
 (pdftex.def)             Requested size: 108.405pt x 81.169pt.
- [3 <./images/beach_results.png> <./images/beach.png>] <images/hof_segemented_l
-ines.png, id=106, 407.5225pt x 305.14pt>
+
+<images/hof_segemented_lines.png, id=108, 407.5225pt x 305.14pt>
 File: images/hof_segemented_lines.png Graphic file (type png)
 
 <use images/hof_segemented_lines.png>
-Package pdftex.def Info: images/hof_segemented_lines.png used on input line 274
+Package pdftex.def Info: images/hof_segemented_lines.png used on input line 288
 .
 (pdftex.def)             Requested size: 108.405pt x 81.169pt.
- (./cs269.bbl [4 <./images/bird_32by32.png> <./images/hof.png> <./images/hof_se
-gemented.png> <./images/hof_segemented_lines.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
+ (./cs269.bbl [4 <./images/beach.png> <./images/bird_32by32.png> <./images/hof.
+png> <./images/hof_segemented.png> <./images/hof_segemented_lines.png>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
  [5
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
  (./cs269.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 303.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 317.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
  ) 
 Here is how much of TeX's memory you used:
- 7111 strings out of 495059
- 107061 string characters out of 3182030
- 201713 words of memory out of 3000000
- 10138 multiletter control sequences out of 15000+200000
+ 7125 strings out of 495059
+ 107319 string characters out of 3182030
+ 201842 words of memory out of 3000000
+ 10148 multiletter control sequences out of 15000+200000
  26625 words of font info for 57 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,8n,40p,1421b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,8n,40p,1409b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-d
@@ -529,10 +544,10 @@ exlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on cs269.pdf (5 pages, 1962173 bytes).
+Output written on cs269.pdf (5 pages, 2004888 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 62 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
