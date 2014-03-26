@@ -47,7 +47,7 @@
 \begin{abstract}
 
 \paragraph{}
-Seam carving deals with the task of taking an input picture and resizing it to fit another screen type and aspect ratio. In this paper, we discuss possible methods to improve the algorithm, and also make it work faster. We approached this problem using the segmentation approach. Experimental results demonstrate in some cases our method resizes the image faster and with creating the same or less amount of artifacts as the original algorithm.
+Seam carving deals with the task of taking an input picture and resizing it to fit another screen type and aspect ratio. In this paper, we discuss possible methods to decrease the number of artifacts intoduced by seam carving, as well as decreasing run time of the original algorithm by using an image segmentation approach. Experimental results demonstrate that in every case our method resizes the image faster and in some cases reduces the number of artifacts introduced by the original seam carving algorithm.
 
 
  % %Citations can be done this way~\cite{Liu2007} or this more % % %concise 
@@ -102,8 +102,7 @@ communities. The definition of \emph{important} can depend on the specific appli
 
 
 \paragraph{}
-One of the automatic image retargeting techniques is Seam Carving, where the general idea is to decrease the image width (or height) one pixel at a time, by removing a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact. 
-
+One of the automatic image retargeting techniques is Seam Carving, where the general idea is to decrease or increase the image width (or height) one pixel at a time, by removing or adding a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping or scaling method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact.  This method is repeated until the picture is shrunk to its new ratio.  When a picture is enlarged by \emph{important} k pixels, the \emph{important} k seams of lowest energy are found (as if the image is being shrunk), and then each of these seams, labeled \emph{important} s are artifically added into the picture.  Each particular seam \emph{important} s is found by averaging the pixel intensities orthogonal to it's direction, e.g. if you were adding a horizontal seam, you would average pixel intensities above and below it.  
 \paragraph{}
 To summarize, our goal is to experiment with different combinations of Seam Carving and image segmentation, and by so to improve the results of the original paper.
 
@@ -111,10 +110,10 @@ To summarize, our goal is to experiment with different combinations of Seam Carv
 \section{Prior and Related Work}
 
 \paragraph{}
-The seam carving technique by ~\cite{Avidan2007} is a popular, recently developed approach for content-aware image resizing. The general idea is to decrease the image width (or height) one pixel at a time,  by removing a seam of minimal importance. Intuitively, if the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. The image changes only at the seam region, while the other areas remain intact. ~\cite{Avidan2007} observe that using gradient energy as the importance map gives satisfactory results, but other importance measures could be used, such as saliency map, entropy, and histograms of oriented gradients. The optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can also be used for enlarging the image, by finding seams to be removed and duplicating them. 
+The seam carving technique by ~\cite{Avidan2007} is a popular, recently developed approach for content-aware image resizing. The general idea is to decrease or increase the image width (or height) one pixel at a time,  by removing or adding a seam of minimal importance. Intuitively, if the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. Enlargement of an image according to the seam carving algorithm follows a similar approach, duplicating the k weakest seams, and then finding their value by averaging the pixels around those seams. The image changes only at the seam region, while the other areas remain intact. ~\cite{Avidan2007} observe that using gradient energy as the importance map gives satisfactory results, but other importance measures could be used, such as saliency map, entropy, and histograms of oriented gradients. The optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. 
 
 \paragraph{}
-Generally, the best outcome is achieved when there are enough low-importance seams to be removed, since it creates distortions and artifacts when seams cut through important areas. Moreover, since the energy function reflects feature strength only along to the axes  of image coordinate, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we present Figure \ref{fig:orgSeamCarving}, which is obviously feature rich -- the two basketball players have a lot of distinct feature and take large space in the total image's size. Based on the method of ~\cite{Avidan2007}, we attempt to resize this image both in the horizontal and vertical direction.
+Generally, the best outcomes are achieved when there are enough seams of low-importance to be removed, since artifacts and distortions are created when seams cut through areas with important features. Moreover, since the energy function reflects feature strength only along the axes  of the image coordinates, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich or has a noisy background. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we present Figure \ref{fig:orgSeamCarving}, which is obviously feature rich -- the two basketball players have a lot of distinct features and take up a large region of the total image's size, not to mention that the crowd provides a noisy background in which to run the algorithm. Based on the method of ~\cite{Avidan2007}, we attempt to resize this image both in the horizontal and vertical direction.
 
 
 \begin{figure}[ht]       
@@ -125,20 +124,20 @@ Generally, the best outcome is achieved when there are enough low-importance sea
 \end{figure}
 
 
- As you could see in Figure \ref{fig:orgSeamCarving}, there are artifacts from result from pixels removed from both players hands and legs. This example shows us that there is much room for improving the original method.
+ As you could see in Figure \ref{fig:orgSeamCarving}, there are artifacts that result from the removal of  pixels from both players hands and legs, resulting in gross deformation of Magic Johnson's legs and a misalignment in the right arm/shoulder of Larry Bird. This example shows us that there is much room for improving the original method, especially with images with noisy backgrounds.  
 
 \paragraph{}
 In  ~\cite{Avidan2007}, the optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. The technique can be used for enlarging the image, by finding seams to be removed and duplicating them. It produces impressive results when there are enough low-importance seams to be removed, but creates distortions and artifacts when seams cut through important areas.
 
 \paragraph{}
-Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. There are other methods that rely on segmentation to assign saliencies to different regions in the image. Previous work by ~\cite{Liu2007} and ~\cite{Hasan2009} suggests to segment the image into regions and then assign saliencies to each region by considering heuristics such as the region size, position in the image, and relationships between neighboring regions. ~\cite{Setlur2005} proposed to segment the image using mean-shift and assign saliencies to the obtained regions by a combination of bottom-up and top-down features. Also, ~\cite{Avidan2007} ,authors of the original Seam Carving algorithm, suggested that users could scribble on salient areas. 
+Motivated by the compelling applications and the challenges related to the problem, we proposed to use image segmentation to improve the seam carving algorithm. There are other methods that rely on segmentation to assign saliencies to different regions in the image. Previous work by ~\cite{Liu2007} and ~\cite{Hasan2009} suggests to segment the image into regions and then assign saliencies to each region by considering heuristics such as the region size, position in the image, and relationships between neighboring regions. ~\cite{Setlur2005} proposed to segment the image using mean-shift and assign saliencies to the obtained regions by a combination of bottom-up and top-down features. Also, ~\cite{Avidan2007} ,authors of the original Seam Carving algorithm, suggested that users could scribble on salient areas, artificially raising their image energy values, making it so their pixels would not be removed in the seam removal process.  
 
 \section{Technical details}
 
 \subsection{Overview}
 
 \paragraph{}
-Our method builds upon the basis of the original seam carving algorithm, where we the laplacian to find the energy levels of each pixel in the input image. After finding the energy levels, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then the we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.
+Our method builds upon the basis of the original seam carving algorithm, where we use the Laplacian to find the energy levels of each pixel in the input image. After finding the energy of each pixel, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.  Furthermore, the  number of seams in each individual segment to be removed is proportional to the total number of seams that must be removed in the entire image.  
 
 \subsection{Image Energy}
 Our initial approach, similar to the original paper, is to preserve the image's energy, by removing unnoticeable pixels. That leads to the following energy function that was used in the original paper. We use $I(x)$ to denote the input image, where $x = (x, y)$. 
@@ -173,14 +172,14 @@ Similar to the original method, we find the optimal seam for each segment using 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=2.1in]{images/seam}
-  \caption{ Seam example.}
+  \caption{ Seam finding example.}
   \label{fig:seamExample}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=2.1in]{images/seam_alg}
-  \caption{ Exampe of finding seams using dynamic programming.}
+  \caption{ Example of finding seams using dynamic programming.}
   \label{fig:seamAlg}
 \end{figure}
 
@@ -197,17 +196,17 @@ We repeat the above process for each segment, and then remove the newly found se
 
 We build upon the original method ~\cite{Avidan2007}:
 \begin{enumerate}
-  \item Calculate energy map ~ $O(m n)$
-  \item Find seam of lowest energy ~ $O(m n)$
-  \item Remove seam / Add seam ~ $O(m n)$
-  \item Repeat 1-3 until image is resized
+  \item Calculate energy map ~ $O(m*n)$
+  \item Find seam of lowest energy ~ $O(m*n)$
+  \item Remove seam / Add seam ~ $O(m*n)$
+  \item Repeat 1-3 until image is resized total run time ~ $O(s*m*n)$ 
 \end{enumerate}
 
 By using the same algorithm on different segments of the image:
 
 \begin{itemize}
   \item Divide the original image into equally sized images and run the original seam carving algorithm.
-  \item From each segmented image remove half the number of seams from the original image. This can be done horizontally, vertically, or both, creating a grid like segmentation.
+  \item From each segmented image remove the number of seams in ratio to the original image.  For example, if we divide the image into four horizontal segments, and we must remove 40 horizontal seams, we will remove 40/4 or 10 seams from each of our segments.  
   \item This can be done horizontally, vertically, or both, creating a grid like segmentation.
 \end{itemize}
 
@@ -215,10 +214,10 @@ By using the same algorithm on different segments of the image:
 \subsection{Complexity}
 
 \paragraph{}
-Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $o(s m n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
+Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $O(s*m*n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
 
 \paragraph{}
-With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. So the total number of segments equals to $s_m s_n$, and total number of seams in each segment is $\frac{s}{s_m s_n} $, where $s$ is the absolute difference between the images old width and new width, or equivalently the total number of seams that we add or remove. Total running time for each segment is $ \frac{s m n}{(s_m*s_n)^2} $.
+With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. The total number of segments we divide the image into equals to $s_m * s_n$, and total number of seams in each segment is $\frac{s}{s_m}$+$\frac(s}{s_n} $, where $s$ is the absolute difference between the images old width and new width, or equivalently the total number of seams that we add or remove. Total running time for each segment is $ \frac{s m n}{(s_m*s_n)^2} $.
 
 
 \paragraph{}
