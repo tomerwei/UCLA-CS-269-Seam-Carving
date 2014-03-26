@@ -85,7 +85,7 @@ Seam carving deals with the task of taking an input picture and resizing it to f
 \section{Introduction}
 
 \paragraph{}
-With the recent advances in imaging technology, digital images have become an important component of media distribution. Images are frequently used in news stories, and people post their pictures online to be seen by family and friends. Images, however, are typically authored once, but need to be adapted for consumption under varied conditions. For example, pictures are often displayed on different screens, where the area available for the picture may have a different aspect ratio than the original image has for layout reasons. Dynamically changing the layout of web pages in browsers should take into account the distribution of text and images, resizing them if necessary. Also, the use of thumbnails that faithfully represent the image content is important in image browsing applications. A variety of displays are used for image viewing, ranging from high-resolution computer monitors to TV screens and low-resolution mobile devices. Recently, there has been a growing interest in media retargeting that is driven largely by the growing number of mobile devices used to view digital content. Even if technological advances allow for their resolution to increase, their physical area will still be small. Hence, rearranging the relative sizes of different objects in the image could still provide an improved viewing experience, despite the availability of more pixels.
+With the recent advances in imaging technology, digital images have become an important component of media distribution. Images are frequently used in news stories, and people post their pictures online to be seen by family and friends. Images, however, are typically authored once, but need to be adapted for consumption under varied conditions. For example, pictures are often displayed on different screens, where the area available for the picture may have a different aspect ratio than the original image has for layout reasons. Dynamically changing the layout of web pages in browsers should take into account the distribution of text and images, resizing them if necessary. Also, the use of thumbnails that faithfully represent the image content is important in image browsing applications. A variety of displays are used for image viewing, ranging from high-resolution computer monitors to TV screens and low-resolution mobile devices. Recently, there has been a growing interest in media retargeting that is driven largely by the growing number of mobile display devices used to view digital content. Even if technological advances allow for their screen resolutions to increase, the actual viewing area will still be small. Hence, rearranging the relative sizes of different objects in the image could still provide a vastly improved viewing experience, despite the availability of more pixels.
 
 \paragraph{}
 This diversity of image consumption conditions introduces a new problem: images must be resized for optimal display or use in different applications. The process, also known as image re-targeting or image resizing, consists of modifying the image's aspect ratio and size in order to best satisfy the new requirements.  The common approach for all media resizing works is first to define an importance map on the pixels of the media, and then use this map to guide some operator that reduces (or enlarges) the media size. However, straightforward image resizing operators, such as scaling, often do not produce satisfactory results, since they are oblivious to image content. To overcome this limitation, a class of techniques attempt to resize the images in a content-aware fashion, i.e., taking the image content into consideration to preserve important regions and minimize distortions. This is a challenging problem, as it requires preserving the relevant information while maintaining an aesthetically pleasing image for the user.
@@ -102,7 +102,7 @@ communities. The definition of \emph{important} can depend on the specific appli
 
 
 \paragraph{}
-One of the automatic image retargeting techniques is Seam Carving, where the general idea is to decrease or increase the image width (or height) one pixel at a time, by removing or adding a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping or scaling method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact.  This method is repeated until the picture is shrunk to its new ratio.  When a picture is enlarged by \emph{important} k pixels, the \emph{important} k seams of lowest energy are found (as if the image is being shrunk), and then each of these seams, labeled \emph{important} s are artifically added into the picture.  Each particular seam \emph{important} s is found by averaging the pixel intensities orthogonal to it's direction, e.g. if you were adding a horizontal seam, you would average pixel intensities above and below it.  
+One of the automatic image retargeting techniques is Seam Carving, where the general idea is to decrease or increase the image width (or height) one pixel at a time, by removing or adding a seam of minimal importance. Hence Seam Carving can be viewed as a generalized cropping or scaling method. A seam is defined as an 8-connected path of pixels (from top to bottom, or from left to right of the image, depending on which dimension is being reduced) that contains only one pixel per row (or column). When the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. So the image changes only at the seam region, while the other areas remain intact.  This method is repeated until the picture is shrunk to its new ratio.  When a picture is enlarged by \emph{k} pixels, the \emph{k} seams of lowest energy are found (as if the image is being shrunk), and then each of these seams, labeled \emph{s} are artifically added into the picture.  Each particular seam \emph{s}  is found by averaging the pixel intensities orthogonal to it's direction, e.g. if you were adding a horizontal seam, you would average pixel intensities above and below it.  
 \paragraph{}
 To summarize, our goal is to experiment with different combinations of Seam Carving and image segmentation, and by so to improve the results of the original paper.
 
@@ -113,7 +113,7 @@ To summarize, our goal is to experiment with different combinations of Seam Carv
 The seam carving technique by ~\cite{Avidan2007} is a popular, recently developed approach for content-aware image resizing. The general idea is to decrease or increase the image width (or height) one pixel at a time,  by removing or adding a seam of minimal importance. Intuitively, if the importance map is based on gradient energy, the first removed seam will be in a homogeneous area. The image is then readjusted by shifting pixels left or up to compensate for the removed seam, resulting in an image which is one pixel smaller, either on width or height. Enlargement of an image according to the seam carving algorithm follows a similar approach, duplicating the k weakest seams, and then finding their value by averaging the pixels around those seams. The image changes only at the seam region, while the other areas remain intact. ~\cite{Avidan2007} observe that using gradient energy as the importance map gives satisfactory results, but other importance measures could be used, such as saliency map, entropy, and histograms of oriented gradients. The optimal seams are computed using dynamic programming, and an algorithm for resizing in both dimensions by choosing between optimal vertical or horizontal seams is also presented. 
 
 \paragraph{}
-Generally, the best outcomes are achieved when there are enough seams of low-importance to be removed, since artifacts and distortions are created when seams cut through areas with important features. Moreover, since the energy function reflects feature strength only along the axes  of the image coordinates, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich or has a noisy background. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we present Figure \ref{fig:orgSeamCarving}, which is obviously feature rich -- the two basketball players have a lot of distinct features and take up a large region of the total image's size, not to mention that the crowd provides a noisy background in which to run the algorithm. Based on the method of ~\cite{Avidan2007}, we attempt to resize this image both in the horizontal and vertical direction.
+Generally, the best outcomes are achieved when there are enough seams of low-importance to be removed, since artifacts and distortions are created when seams cut through areas with important features. Moreover, since the energy function reflects feature strength only along the axes  of the image coordinates, it cannot protect some prominent shape boundaries of arbitrary orientations. Also, seam carving does not work well when the input image is feature-rich or has a noisy background. To illustrate the limitations of the existing seam carving framework ~\cite{Avidan2007}, we present Figure \ref{fig:orgSeamCarving}, which is feature rich -- the two basketball players have a lot of distinct features and take up a large region of the total image's size, not to mention that the crowd provides a noisy background. Based on the method of ~\cite{Avidan2007}, we attempt to resize this image both in the horizontal and vertical direction.
 
 
 \begin{figure}[ht]       
@@ -214,33 +214,33 @@ By using the same algorithm on different segments of the image:
 \subsection{Complexity}
 
 \paragraph{}
-Running the Seam Carving algorithm on each segment separately, we achieved an improvement in runtime. First, let us remember that finding $s$ seams takes $O(s*m*n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
+By segmenting the image, we achieved significant runtime performance over the traditional seam carving algorithm. First, let us remember that finding $s$ seams takes $O(s*m*n)$ in the original method, where $m,n$ define the image's size and $s$ is the number of seams.
 
 \paragraph{}
-With our segmented approach running on a single thread, the runtime time is equal to the total number of segments multiplied by the running time for each segment. So by segmenting the image we can concurrently reduce the running time of the algorithm by a factor of $s_m s_n$, where $s_m$ and $s_n$ are the number of segments in a column and the number of segments in a row, respectively. The total number of segments we divide the image into equals to $s_m * s_n$, and total number of seams in each segment is $\frac{s}{s_m}$, where $s$ is the absolute difference between the images old width and new width, or equivalently the total number of seams that we add or remove. Total running time for each segment is $ \frac{s m n}{(s_m*s_n)^2} $.
+With our segmented approach running in a single thread, the runtime is equal to the total number of segments multiplied by the running time for each segment. By purely segmenting the image into vertical segments we can concurrently reduce the running time of the algorithm by a factor of $s_n$, where $s_n$ are the number of vertical segments in the image. The total number of seams in each segment is $\frac{s}{s_n}$, where $s$ is the absolute difference between the images old width and new width, or equivalently the total number of seams that we add or remove. Total running time for seam removal in each segment is $O(\frac{s}{s_n} * m * \frac{n}{s_n})$ = $ O(\frac{s*m*n}{s_n^2}) $.  
 
 
 \paragraph{}
-Total running time of each segment serially equals to $ s_m s_n   \frac{ O( s m n ) }{ ( s_m s_n)^2  }$. For example, when we segment the image into 4 parts, we get $s_m,s_n=2$, and $\frac{s}{4}$. So in this case: $\frac{O(s*m*n)}{16}$, and the the total running time for each segment is $4 * \frac{O (s m n)}{16} = \frac{O(s m n)}{4}$, which runs serially. But there is potential for a significant speedup if we run the algorithm concurrently -- up to $\frac{O(s*m*n)}{16}$.
+Total running time of the segmented image carving thus results in: $ s_n * O(\frac{ s*m*n }{ s_n^2  })$ or  $O(\frac{ s*m*n  }{ s_n  })$. For example, when we segment the image into 2 parts,  $s_n=2$, and the number of seams the algorithm must find on each part is: $\frac{s}{2}$. So in this case the total running time for seam carving in each segment is: $\frac{O(s*m*n)}{4}$, and the total running time for the entire algorithm is $2 * \frac{O (s*m*n)}{4} = \frac{O(s*m*n)}{2}$, when runs serially.  There is potential for even more speedup if we run the algorithm concurrently -- up to $\frac{O(s*m*n)}{4}$, in our particular case, but even more as we continue to segment the image into smaller segments.
 
 
 
 \subsection{Implementation}
 
 \paragraph{}
-We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expend the code to support image segmentation. Therefore we rewrote the original and segmentation expansion of in python. 
+We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expand the code to support image segmentation. Therefore we rewrote the original and segmented image carving algorithm in Python. 
 
-Access to the code is available through our paper website  \href{https://github.com/tomerwei/seamCarving/blob/master/paper/acmsiggraph/cs269.pdf?raw=true}{website}
+Access to the code is available through our paper's website  \href{https://github.com/tomerwei/seamCarving/blob/master/paper/acmsiggraph/cs269.pdf?raw=true}{here}
 
 
 \section{Experimental Results}
 
-We took a number of images, some of which were used previous papers, varying from feature rich images to images that show great results with the original seam carving method. All experiments were run on a standard home laptop, equivalent to MacBook Air.
+We took a number of images, some of which were used previous papers, varying from feature rich images that perform poorly using the traditional seam carving method to images that show great results. All experiments were run on a standard home laptop, equivalent to MacBook Air.
 
 
 \begin{figure}[ht]       
     \fbox{\includegraphics[width=3.5in]{images/beach_results}}   
-    \caption{Left -- Input image. Right -- output of segmented seam carving. Beach Image}
+    \caption{Left -- Input image. Right -- output of segmented 3x1 seam carving. Beach Image}
     \label{materialflowChart}
 \end{figure}
 
@@ -248,68 +248,77 @@ We took a number of images, some of which were used previous papers, varying fro
 \begin{figure}[ht]
   \centering
   \includegraphics[width=3.2in]{images/beach}
-  \caption{ Run-times}
+  \caption{ Run-time of resizing (in seconds)}
   \label{fig:runtimes}
 \end{figure}
 
 
-As we see in Figure \ref{fig:runtimes}, segmenting images into equally sized segments results in a much faster running algorithm, even if the algorithm runs serially. We also observed that by increasing number of grid segments we speed up the algorithm, and decrease artifacts within an image, as seen in Figure \ref{fig:bird3232}.
+As we see in Figure \ref{fig:runtimes}, segmenting images into equally sized segments results in a much faster running algorithm, even if the algorithm runs serially. We also observed that by increasing number of grid segments we decreased artifacts within an image with especially noisy backgrounds, as seen in Figure \ref{fig:orgSeamCarvingComparision}.
 
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=1.8in]{images/bird_32by32}
-  \caption{ Segmented Seam Carving(30x30)
-  }
-  \label{fig:bird3232}
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=1.5in]{images/bird_32by32}}   
+    \fbox{\includegraphics[width=1.5in]{images/bird_magic_226x375}}
+    \caption{Left -- 32x32 Segmented Seam Carving Approach. Right --Pure Seam Carving (enlarged). }
+    \label{fig:orgSeamCarvingComparision}
 \end{figure}
 
 
-Finally, we notice that as we segment to smaller and smaller parts, black artifacts appear in the images edges. We hypothesize that this is a byproduct of our implementation, but couldn't confirm it.
+By imposing a gridlike structure on the images on which we ran our seam carving, we fed the algorithm top down information about the image, and ultimately placed a type of uniformity in which seams could be removed. This results in much less distortion of the important features of the original image; especially those with with noisy backgrounds and/or not very many seams of low energy as seen in Figure \ref{fig:leopard_lady_compare}.
+
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=1.5in]{images/leopard_lady}}
+    \centering
+    \caption{Original Image}
+    \label{fig:leopard_lady}
+
+\end{figure}
+\begin{figure}[ht]       
+    \fbox{\includegraphics[width=1.5in]{images/segmented1x1_leopard_lady}}
+    \fbox{\includegraphics[width=1.5in]{images/segmented20x20_leopard_lady}}
+    \caption{Left -- Pure Seam Carving Right -- 20x20 Segmented Seam Carving}
+    \label{fig:leopard_lady_compare}
+\end{figure}
+
+
+
+
+\paragraph{}
+
+However, we found several drawbacks to our segmentation approach.  As you may have noticed as we segment to smaller and smaller parts, black artifacts appear along the image edges. We hypothesize that this is a byproduct of our implementation, a result of dealing with integer values and losing information due to rounding errors through the segmentation, but could not confirm this.  Furthermore, due to the segmentation, the image is much less smooth than resizing using the pure seam carving algorithm.  If you look closely, along segmentation boundaries there are minor misalignments which result in a overall choppier image.   However, even our primative method of grid segmentation results in a resizing of an image with less distortions and in some ways retain the important features of the original photograph better than a pure seam carving approach.
 
 
 \section{Limitations}
 
-The proposed method is dependent on where the image is segmented. So if the segmentation cut through feature rich parts of the image, some details might be lost and artifacts might be created. 
+\paragraph{}The proposed method is dependent on where the image is segmented and in how many parts we decide to segment the image. When the segmentation divides the image into parts in which the seams that are removed from each segment come from drastically different segments of the image, we end up with a faulty resizing, and image segments that do not line up, introducing artifacts along segmentation boundaries when we try to reassemble the individual segments. 
 
-\begin{figure}[ht]       
-    \fbox{\includegraphics[width=1.5in]{images/hof}}   
-    \fbox{\includegraphics[width=1.5in]{images/hof_segemented}}
-    \caption{Left -- input image. Right -- output of segmented seam carving, artifacts created are circled.}
-    \label{fig:Beach_in_and_out}
-    
-\end{figure}
-
-For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}. The artifacts are the results of the segmentation lines going through the coast line.
-
-
-\begin{figure}[ht]       
+\begin{figure}[ht]
+    \fbox{\includegraphics[width=1.5in]{images/hof}}       
     \fbox{\includegraphics[width=1.5in]{images/hof_segemented_lines}}
     \caption{Left -- input image. Right -- output of segmented seam carving, artifacts created are circled.}
-    \label{fig:Beach_lines}
+    \label{fig:Beach_in_and_out}
 \end{figure}
 
-Figure ~\ref{fig:Beach_in_and_out} illustrates the segmentation we used. We shall discuss how to pick better segmentation lines in the next section.
+For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}.  As you can see the segmentation we cuts through some major features of the image namely, the coastline.  This problem could be mitigated as we segment the image into smaller and smaller pieces, however this introduces the black artifact that we discussed earlier.  We feel ideally that there are better ways to segment images while still running the seam carving algorithm, several extensions of which we shall discuss in the next section.  
 
 
 \section{Conclusions and Future Work}
 
 \paragraph{}
-In this paper we proposed a content-aware im-
-age resizing algorithm which builds upon the previous work by ~\cite{Avidan2007}. Our segmentation approach shows that there is much to be done in improving the speed runtime and performance of the original method. We didn't have enough time to investigate other methods to segment a picture, like image saliency as shown in ~\cite{Liu2007} and ~\cite{Hasan2009}. Here are some points that we think are worth investigating in future work:
+In this paper we proposed a content-aware image resizing algorithm which builds upon the previous work by ~\cite{Avidan2007}. Our segmentation approach shows that there is much to be done in improving the speed and performance of the original method. We did not have enough time to investigate other methods to segment a picture, like image saliency as shown in ~\cite{Liu2007} and ~\cite{Hasan2009}. Here are some points that we think are worth investigating in future work:
 
 \begin{itemize}
   \item Allowing segmentation into non-rectangular regions could lead to better results, especially if the segmentation fits the features and image energy map, so the seams that we create will only carve through these regions, thereby reducing artifacts in the output resized image.
-  \item Flexible user input for segmentation is also one possible improvement for segmented Seam Carving -- the user will be able to arrange the segments, and also mark areas of importance in the image so that the seam will skip them, thus avoiding  artifacts. 
+  \item Flexible user input for segmentation is also one possible improvement for segmented Seam Carving -- the user will be able to arrange the segments, and also mark areas of importance in the image so that the seam will skip them, thus avoiding seam-created artifacts. 
   \item Parallelizing our python implementation for greater speed increase.
-  \item As wee in Figure \ref{fig:bird3232}, some artifacts are created between the different segments. Applying a small smoothing operator to areas in between segments to reduce artifacts could lead to better results.
+  \item As we see in Figure \ref{fig:orgSeamCarvingComparision}, some artifacts are created between the different segments. Applying a small smoothing operator to areas in between segments to reduce artifacts could lead to better results.
   \item Using forward instead of backward energy, so that instead of removing seams with lowest energy, we remove seam which leaves the image with highest energy.
   \item Applying the saliency filter before seam carving to emphasize areas to minimize distortion.  
 \end{itemize}
 
 
 \paragraph{}
-Finally, there is always room for testing on more images, and trying different energy filters, since the results tend to be subjective by nature. There are further ways to utilize image segmentation to improve image resizing in large and specifically the Seam Carving method, and conducting more experiments and getting input from users is essential in refining this technique. 
+Finally, there is always room for testing on more images, and trying different energy filters, since the results tend to be subjective by nature. There are further ways to utilize image segmentation to improve image resizing in large and specifically the Seam Carving method.  Conducting more experiments and getting input from users providing some top-down information is essential in refining this technique.  In the meantime, we conclude that segmenting the image in a gridlike fashion vastly improves the run time of the original seam carving algorithm.  Furthermore, by imposing a gridlike structure on the original image, we feed the seam carving algorithm some top down information which helps the image retain some of its more salient features, while removing distortion caused by noisy background or feature rich images.  
 
 \bibliographystyle{acmsiggraph}
 \bibliography{template}

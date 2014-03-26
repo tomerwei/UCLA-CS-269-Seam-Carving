@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.25)  25 MAR 2014 19:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.25)  25 MAR 2014 23:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -403,79 +403,42 @@ File: images/retargeting.png Graphic file (type png)
 Package pdftex.def Info: images/retargeting.png used on input line 95.
 (pdftex.def)             Requested size: 231.26378pt x 64.0183pt.
 
+Underfull \vbox (badness 5189) has occurred while \output is active []
 
-LaTeX Warning: Citation 'Liu2010' on page 1 undefined on input line 100.
-
-[1{/usr/local/texlive/2013basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./images/retargeting.png>]
-
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 113.
+ [1{/usr/local/texlive/2013basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 113.
-
-
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 116.
-
-
-LaTeX Warning: Reference `fig:orgSeamCarving' on page 2 undefined on input line
- 116.
-
-
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 116.
-
-<images/bird_magic.jpg, id=23, 327.2225pt x 426.59375pt>
+ <./images/retargeting.png>] <images/bird_magic.jpg, id=31, 327.2225pt x 426.59
+375pt>
 File: images/bird_magic.jpg Graphic file (type jpg)
 
 <use images/bird_magic.jpg>
 Package pdftex.def Info: images/bird_magic.jpg used on input line 120.
 (pdftex.def)             Requested size: 108.405pt x 141.32315pt.
 
-<images/bird_magic_226x375.jpg, id=24, 226.8475pt x 376.40625pt>
+<images/bird_magic_226x375.jpg, id=32, 226.8475pt x 376.40625pt>
 File: images/bird_magic_226x375.jpg Graphic file (type jpg)
 
 <use images/bird_magic_226x375.jpg>
 Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 121.
 (pdftex.def)             Requested size: 108.405pt x 179.87459pt.
-
-
-LaTeX Warning: Reference `fig:orgSeamCarving' on page 2 undefined on input line
- 127.
-
-
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 130.
-
-
-LaTeX Warning: Citation 'Liu2007' on page 2 undefined on input line 133.
-
-
-LaTeX Warning: Citation 'Hasan2009' on page 2 undefined on input line 133.
-
-
-LaTeX Warning: Citation 'Setlur2005' on page 2 undefined on input line 133.
-
-
-LaTeX Warning: Citation 'Avidan2007' on page 2 undefined on input line 133.
-
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 137.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 137.
 LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 (Font)              scaled to size 9.19998pt on input line 137.
+ [2 <./images/bird_magic.jpg> <./images/bird_magic_226x375.jpg>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no † in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
-[2 <./images/bird_magic.jpg> <./images/bird_magic_226x375.jpg>]
-<images/seam.png, id=47, 332.24126pt x 282.05376pt>
+ <images/seam.png, id=65, 332.24126pt x 282.05376pt>
 File: images/seam.png Graphic file (type png)
- <use images/seam.png>
+
+<use images/seam.png>
 Package pdftex.def Info: images/seam.png used on input line 174.
 (pdftex.def)             Requested size: 151.76744pt x 128.8425pt.
-
-<images/seam_alg.png, id=48, 523.9575pt x 210.7875pt>
+ <images/seam_alg.png, id=66, 523.9575pt x 210.7875pt>
 File: images/seam_alg.png Graphic file (type png)
 
 <use images/seam_alg.png>
@@ -493,9 +456,6 @@ sy/m/n/9 ^^@ \OT1/cmr/m/n/9 1\OML/cmm/m/it/9 ; j \OMS/cmsy/m/n/9 ^^@ \OT1/cmr/m
  j \OT1/cmr/m/n/9 + 1))
  []
 
-
-LaTeX Warning: Citation 'Avidan2007' on page 3 undefined on input line 197.
-
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 208.
 
 (/usr/local/texlive/2013basic/texmf-dist/tex/latex/psnfss/omsptm.fd
@@ -503,13 +463,8 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
-
-Underfull \hbox (badness 5592) in paragraph at lines 224--225
- [][] \OT1/ptm/m/n/9 To-tal run-ning time of each seg-ment se-ri-ally equals to
-
- []
-
-<images/beach_results.png, id=50, 801.99625pt x 298.11375pt>
+ [3 <./images/seam.png> <./images/seam_alg.png>]
+<images/beach_results.png, id=95, 801.99625pt x 298.11375pt>
 File: images/beach_results.png Graphic file (type png)
 
 <use images/beach_results.png>
@@ -520,93 +475,83 @@ Overfull \hbox (18.79999pt too wide) in paragraph at lines 242--243
 [][] 
  []
 
-[3 <./images/seam.png> <./images/seam_alg.png>]
-<images/beach.png, id=77, 500.87125pt x 202.7575pt>
+<images/beach.png, id=97, 500.87125pt x 202.7575pt>
 File: images/beach.png Graphic file (type png)
  <use images/beach.png>
 Package pdftex.def Info: images/beach.png used on input line 250.
 (pdftex.def)             Requested size: 231.26378pt x 93.61917pt.
 
-
-LaTeX Warning: Reference `fig:runtimes' on page 4 undefined on input line 256.
-
-
-LaTeX Warning: Reference `fig:bird3232' on page 4 undefined on input line 256.
-
-<images/bird_32by32.png, id=78, 248.93pt x 412.54124pt>
+<images/bird_32by32.png, id=100, 248.93pt x 412.54124pt>
 File: images/bird_32by32.png Graphic file (type png)
 
 <use images/bird_32by32.png>
-Package pdftex.def Info: images/bird_32by32.png used on input line 261.
-(pdftex.def)             Requested size: 130.08621pt x 215.5928pt.
- <images/hof.png, id=79, 524.96124pt x 337.26pt>
+Package pdftex.def Info: images/bird_32by32.png used on input line 260.
+(pdftex.def)             Requested size: 108.405pt x 179.65543pt.
+File: images/bird_magic_226x375.jpg Graphic file (type jpg)
+ <use images/bird_magic_226x375.jpg>
+Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 261.
+(pdftex.def)             Requested size: 108.405pt x 179.87459pt.
+
+<images/leopard_lady.jpg, id=102, 501.875pt x 333.245pt>
+File: images/leopard_lady.jpg Graphic file (type jpg)
+
+<use images/leopard_lady.jpg>
+Package pdftex.def Info: images/leopard_lady.jpg used on input line 270.
+(pdftex.def)             Requested size: 108.405pt x 71.97679pt.
+
+<images/segmented1x1_leopard_lady.jpg, id=103, 501.875pt x 200.75pt>
+File: images/segmented1x1_leopard_lady.jpg Graphic file (type jpg)
+
+<use images/segmented1x1_leopard_lady.jpg>
+Package pdftex.def Info: images/segmented1x1_leopard_lady.jpg used on input lin
+e 277.
+(pdftex.def)             Requested size: 108.405pt x 43.35951pt.
+
+<images/segmented20x20_leopard_lady.jpg, id=104, 501.875pt x 200.75pt>
+File: images/segmented20x20_leopard_lady.jpg Graphic file (type jpg)
+
+<use images/segmented20x20_leopard_lady.jpg>
+Package pdftex.def Info: images/segmented20x20_leopard_lady.jpg used on input l
+ine 278.
+(pdftex.def)             Requested size: 108.405pt x 43.35951pt.
+
+<images/hof.png, id=105, 524.96124pt x 337.26pt>
 File: images/hof.png Graphic file (type png)
-
-<use images/hof.png>
-Package pdftex.def Info: images/hof.png used on input line 276.
+ <use images/hof.png>
+Package pdftex.def Info: images/hof.png used on input line 296.
 (pdftex.def)             Requested size: 108.405pt x 69.64307pt.
- <images/hof_segemented.png, id=80, 407.5225pt x 305.14pt>
-File: images/hof_segemented.png Graphic file (type png)
 
-<use images/hof_segemented.png>
-Package pdftex.def Info: images/hof_segemented.png used on input line 277.
-(pdftex.def)             Requested size: 108.405pt x 81.169pt.
-
-
-LaTeX Warning: Reference `fig:Beach_in_and_out' on page 4 undefined on input li
-ne 283.
-
-<images/hof_segemented_lines.png, id=81, 407.5225pt x 305.14pt>
+<images/hof_segemented_lines.png, id=106, 407.5225pt x 305.14pt>
 File: images/hof_segemented_lines.png Graphic file (type png)
 
 <use images/hof_segemented_lines.png>
-Package pdftex.def Info: images/hof_segemented_lines.png used on input line 287
+Package pdftex.def Info: images/hof_segemented_lines.png used on input line 297
 .
 (pdftex.def)             Requested size: 108.405pt x 81.169pt.
-
-
-LaTeX Warning: Reference `fig:Beach_in_and_out' on page 4 undefined on input li
-ne 292.
-
-
-LaTeX Warning: Citation 'Avidan2007' on page 4 undefined on input line 299.
-
-
-LaTeX Warning: Citation 'Liu2007' on page 4 undefined on input line 299.
-
-
-LaTeX Warning: Citation 'Hasan2009' on page 4 undefined on input line 299.
-
-
-LaTeX Warning: Reference `fig:bird3232' on page 4 undefined on input line 305.
-
-(./cs269.bbl [4 <./images/beach_results.png> <./images/beach.png> <./images/bir
-d_32by32.png> <./images/hof.png> <./images/hof_segemented.png>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
- [5
-
- <./images/hof_segemented_lines.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
+ [4 <./images/beach_results.png> <./images/beach.png> <./images/bird_32by32.png
+> <./images/leopard_lady.jpg> <./images/segmented1x1_leopard_lady.jpg> <./image
+s/segmented20x20_leopard_lady.jpg> <./images/hof.png> <./images/hof_segemented_
+lines.png>] (./cs269.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 325.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 325.
  (./cs269.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 316.
-
-
-LaTeX Warning: There were undefined references.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 325.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 325.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 325.
  ) 
 Here is how much of TeX's memory you used:
- 7279 strings out of 494536
- 110886 string characters out of 6167446
- 196666 words of memory out of 5000000
- 10366 multiletter control sequences out of 15000+600000
+ 7293 strings out of 494536
+ 111353 string characters out of 6167446
+ 199145 words of memory out of 5000000
+ 10375 multiletter control sequences out of 15000+600000
  26625 words of font info for 57 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 43i,8n,40p,1424b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,8n,40p,1435b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/lo
 cal/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb>
 </usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
@@ -623,10 +568,10 @@ etic/uhvb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on cs269.pdf (5 pages, 1964192 bytes).
+Output written on cs269.pdf (5 pages, 1920462 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 64 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
