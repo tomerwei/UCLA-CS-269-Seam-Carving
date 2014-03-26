@@ -123,7 +123,7 @@ Generally, the best outcomes are achieved when there are enough seams of low-imp
     \label{fig:orgSeamCarving}
 \end{figure}
 
-
+\paragraph{}
  As you could see in Figure \ref{fig:orgSeamCarving}, there are artifacts that result from the removal of  pixels from both players hands and legs, resulting in gross deformation of Magic Johnson's legs and a misalignment in the right arm/shoulder of Larry Bird. This example shows us that there is much room for improving the original method, especially with images with noisy backgrounds.  
 
 \paragraph{}
@@ -228,77 +228,67 @@ Total running time of the segmented image carving thus results in: $ s_n * O(\fr
 \subsection{Implementation}
 
 \paragraph{}
-We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expand the code to support image segmentation. Therefore we rewrote the original and segmented image carving algorithm in Python. 
-
-Access to the code is available through our paper's website  \href{https://github.com/tomerwei/seamCarving/blob/master/paper/acmsiggraph/cs269.pdf?raw=true}{here}
+We initially implemented the original Seam Carving algorithm in Java, but encountered some difficulties when trying to expand the code to support image segmentation. Therefore we rewrote the original and segmented image carving algorithm in Python. Access to the code, along with several demos of image resizing using segmented is available through our paper's website  \href{https://github.com/tomerwei/seamCarving/blob/master/paper/acmsiggraph/cs269.pdf?raw=true}{here}
 
 
 \section{Experimental Results}
 
-We took a number of images, some of which were used previous papers, varying from feature rich images that perform poorly using the traditional seam carving method to images that show great results. All experiments were run on a standard home laptop, equivalent to MacBook Air.
+We took a number of images, some of which were used in previous papers, varying from feature rich images that perform poorly using the traditional seam carving method to images that show great results. All experiments were run on a standard home laptop, equivalent to MacBook Air.
 
 
-\begin{figure}[ht]       
+\begin{figure}[!ht]       
     \fbox{\includegraphics[width=3.5in]{images/beach_results}}   
     \caption{Left -- Input image. Right -- output of segmented 3x1 seam carving. Beach Image}
     \label{materialflowChart}
 \end{figure}
-
-
-\begin{figure}[ht]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=3.2in]{images/beach}
   \caption{ Run-time of resizing (in seconds)}
   \label{fig:runtimes}
 \end{figure}
 
-
+\paragraph{}
 As we see in Figure \ref{fig:runtimes}, segmenting images into equally sized segments results in a much faster running algorithm, even if the algorithm runs serially. We also observed that by increasing number of grid segments we decreased artifacts within an image with especially noisy backgrounds, as seen in Figure \ref{fig:orgSeamCarvingComparision}.
 
-
-\begin{figure}[ht]       
+\begin{figure}[ht]
     \fbox{\includegraphics[width=1.5in]{images/bird_32by32}}   
     \fbox{\includegraphics[width=1.5in]{images/bird_magic_226x375}}
     \caption{Left -- 32x32 Segmented Seam Carving Approach. Right --Pure Seam Carving (enlarged). }
     \label{fig:orgSeamCarvingComparision}
 \end{figure}
 
-
+\paragraph{}
 By imposing a gridlike structure on the images on which we ran our seam carving, we fed the algorithm top down information about the image, and ultimately placed a type of uniformity in which seams could be removed. This results in much less distortion of the important features of the original image; especially those with with noisy backgrounds and/or not very many seams of low energy as seen in Figure \ref{fig:leopard_lady_compare}.
 
 \begin{figure}[ht]       
     \fbox{\includegraphics[width=1.5in]{images/leopard_lady}}
     \centering
     \caption{Original Image}
-    \label{fig:leopard_lady}
-
+    \label{fig:leopard_lady}     
 \end{figure}
-\begin{figure}[ht]       
+
+\begin{figure}[!ht] 
     \fbox{\includegraphics[width=1.5in]{images/segmented1x1_leopard_lady}}
     \fbox{\includegraphics[width=1.5in]{images/segmented20x20_leopard_lady}}
     \caption{Left -- Pure Seam Carving Right -- 20x20 Segmented Seam Carving}
     \label{fig:leopard_lady_compare}
 \end{figure}
-
-
-
-
 \paragraph{}
-
-However, we found several drawbacks to our segmentation approach.  As you may have noticed as we segment to smaller and smaller parts, black artifacts appear along the image edges. We hypothesize that this is a byproduct of our implementation, a result of dealing with integer values and losing information due to rounding errors through the segmentation, but could not confirm this.  Furthermore, due to the segmentation, the image is much less smooth than resizing using the pure seam carving algorithm.  If you look closely, along segmentation boundaries there are minor misalignments which result in a overall choppier image.   However, even our primative method of grid segmentation results in a resizing of an image with less distortions and in some ways retain the important features of the original photograph better than a pure seam carving approach.
+However, we found several drawbacks to our segmentation approach.  As we segment to smaller and smaller parts, black artifacts appear along the image edges. We hypothesize that this is a byproduct of our implementation, a result of dealing with integer values and losing information due to rounding errors through the segmentation.  Furthermore, due to the segmentation, the image is much less smooth than resizing using the pure seam carving algorithm.  If you look closely, along segmentation boundaries there are minor misalignments which result in a overall choppier image.   However, even our primative method of grid segmentation results in a resizing of an image with less distortions and in some ways retain the important features of the original photograph better than a pure seam carving approach.
 
 
 \section{Limitations}
 
-\paragraph{}The proposed method is dependent on where the image is segmented and in how many parts we decide to segment the image. When the segmentation divides the image into parts in which the seams that are removed from each segment come from drastically different segments of the image, we end up with a faulty resizing, and image segments that do not line up, introducing artifacts along segmentation boundaries when we try to reassemble the individual segments. 
-
+\paragraph{}
+The proposed method is dependent on where the image is segmented and in how many parts we decide to segment the image. When the segmentation divides the image into parts in which the seams that are removed from each segment come from drastically different segments of the image, we end up with a faulty resizing, and image segments that do not line up, introducing artifacts along segmentation boundaries when we try to reassemble the individual segments. 
 \begin{figure}[ht]
     \fbox{\includegraphics[width=1.5in]{images/hof}}       
     \fbox{\includegraphics[width=1.5in]{images/hof_segemented_lines}}
     \caption{Left -- input image. Right -- output of segmented seam carving, artifacts created are circled.}
     \label{fig:Beach_in_and_out}
 \end{figure}
-
+\paragraph{}
 For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}.  As you can see the segmentation we cuts through some major features of the image namely, the coastline.  This problem could be mitigated as we segment the image into smaller and smaller pieces, however this introduces the black artifact that we discussed earlier.  We feel ideally that there are better ways to segment images while still running the seam carving algorithm, several extensions of which we shall discuss in the next section.  
 
 

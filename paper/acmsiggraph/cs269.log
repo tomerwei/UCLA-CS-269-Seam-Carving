@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.25)  25 MAR 2014 23:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.25)  26 MAR 2014 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -422,6 +422,9 @@ File: images/bird_magic_226x375.jpg Graphic file (type jpg)
 <use images/bird_magic_226x375.jpg>
 Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 121.
 (pdftex.def)             Requested size: 108.405pt x 179.87459pt.
+
+Underfull \vbox (badness 2521) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 137.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
@@ -432,13 +435,14 @@ LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no † in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
- <images/seam.png, id=65, 332.24126pt x 282.05376pt>
-File: images/seam.png Graphic file (type png)
 
-<use images/seam.png>
+<images/seam.png, id=66, 332.24126pt x 282.05376pt>
+File: images/seam.png Graphic file (type png)
+ <use images/seam.png>
 Package pdftex.def Info: images/seam.png used on input line 174.
 (pdftex.def)             Requested size: 151.76744pt x 128.8425pt.
- <images/seam_alg.png, id=66, 523.9575pt x 210.7875pt>
+
+<images/seam_alg.png, id=67, 523.9575pt x 210.7875pt>
 File: images/seam_alg.png Graphic file (type png)
 
 <use images/seam_alg.png>
@@ -464,114 +468,121 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
  [3 <./images/seam.png> <./images/seam_alg.png>]
-<images/beach_results.png, id=95, 801.99625pt x 298.11375pt>
+<images/beach_results.png, id=96, 801.99625pt x 298.11375pt>
 File: images/beach_results.png Graphic file (type png)
 
 <use images/beach_results.png>
-Package pdftex.def Info: images/beach_results.png used on input line 242.
+Package pdftex.def Info: images/beach_results.png used on input line 240.
 (pdftex.def)             Requested size: 252.94499pt x 94.02005pt.
 
-Overfull \hbox (18.79999pt too wide) in paragraph at lines 242--243
+Overfull \hbox (18.79999pt too wide) in paragraph at lines 240--241
 [][] 
  []
 
-<images/beach.png, id=97, 500.87125pt x 202.7575pt>
+<images/beach.png, id=98, 500.87125pt x 202.7575pt>
 File: images/beach.png Graphic file (type png)
  <use images/beach.png>
-Package pdftex.def Info: images/beach.png used on input line 250.
+Package pdftex.def Info: images/beach.png used on input line 246.
 (pdftex.def)             Requested size: 231.26378pt x 93.61917pt.
 
-<images/bird_32by32.png, id=100, 248.93pt x 412.54124pt>
+<images/bird_32by32.png, id=101, 248.93pt x 412.54124pt>
 File: images/bird_32by32.png Graphic file (type png)
 
 <use images/bird_32by32.png>
-Package pdftex.def Info: images/bird_32by32.png used on input line 260.
+Package pdftex.def Info: images/bird_32by32.png used on input line 255.
 (pdftex.def)             Requested size: 108.405pt x 179.65543pt.
 File: images/bird_magic_226x375.jpg Graphic file (type jpg)
  <use images/bird_magic_226x375.jpg>
-Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 261.
+Package pdftex.def Info: images/bird_magic_226x375.jpg used on input line 256.
 (pdftex.def)             Requested size: 108.405pt x 179.87459pt.
 
-<images/leopard_lady.jpg, id=102, 501.875pt x 333.245pt>
+<images/leopard_lady.jpg, id=103, 501.875pt x 333.245pt>
 File: images/leopard_lady.jpg Graphic file (type jpg)
 
 <use images/leopard_lady.jpg>
-Package pdftex.def Info: images/leopard_lady.jpg used on input line 270.
+Package pdftex.def Info: images/leopard_lady.jpg used on input line 265.
 (pdftex.def)             Requested size: 108.405pt x 71.97679pt.
 
-<images/segmented1x1_leopard_lady.jpg, id=103, 501.875pt x 200.75pt>
+<images/segmented1x1_leopard_lady.jpg, id=104, 501.875pt x 200.75pt>
 File: images/segmented1x1_leopard_lady.jpg Graphic file (type jpg)
 
 <use images/segmented1x1_leopard_lady.jpg>
 Package pdftex.def Info: images/segmented1x1_leopard_lady.jpg used on input lin
-e 277.
+e 272.
 (pdftex.def)             Requested size: 108.405pt x 43.35951pt.
 
-<images/segmented20x20_leopard_lady.jpg, id=104, 501.875pt x 200.75pt>
+<images/segmented20x20_leopard_lady.jpg, id=105, 501.875pt x 200.75pt>
 File: images/segmented20x20_leopard_lady.jpg Graphic file (type jpg)
 
 <use images/segmented20x20_leopard_lady.jpg>
 Package pdftex.def Info: images/segmented20x20_leopard_lady.jpg used on input l
-ine 278.
+ine 273.
 (pdftex.def)             Requested size: 108.405pt x 43.35951pt.
 
-<images/hof.png, id=105, 524.96124pt x 337.26pt>
+<images/hof.png, id=106, 524.96124pt x 337.26pt>
 File: images/hof.png Graphic file (type png)
  <use images/hof.png>
-Package pdftex.def Info: images/hof.png used on input line 296.
+Package pdftex.def Info: images/hof.png used on input line 286.
 (pdftex.def)             Requested size: 108.405pt x 69.64307pt.
 
-<images/hof_segemented_lines.png, id=106, 407.5225pt x 305.14pt>
+<images/hof_segemented_lines.png, id=107, 407.5225pt x 305.14pt>
 File: images/hof_segemented_lines.png Graphic file (type png)
 
 <use images/hof_segemented_lines.png>
-Package pdftex.def Info: images/hof_segemented_lines.png used on input line 297
+Package pdftex.def Info: images/hof_segemented_lines.png used on input line 287
 .
 (pdftex.def)             Requested size: 108.405pt x 81.169pt.
+
+Underfull \vbox (badness 1694) has occurred while \output is active []
+
  [4 <./images/beach_results.png> <./images/beach.png> <./images/bird_32by32.png
 > <./images/leopard_lady.jpg> <./images/segmented1x1_leopard_lady.jpg> <./image
-s/segmented20x20_leopard_lady.jpg> <./images/hof.png> <./images/hof_segemented_
-lines.png>] (./cs269.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 325.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 325.
+s/segmented20x20_leopard_lady.jpg>] (./cs269.bbl
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
+ [5 <./images/hof.png> <./images/hof_segemented_lines.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
  (./cs269.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 325.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 325.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 315.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 325.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 315.
  ) 
 Here is how much of TeX's memory you used:
- 7293 strings out of 494536
- 111353 string characters out of 6167446
- 199145 words of memory out of 5000000
+ 7298 strings out of 494536
+ 111414 string characters out of 6167446
+ 199169 words of memory out of 5000000
  10375 multiletter control sequences out of 15000+600000
  26625 words of font info for 57 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  43i,8n,40p,1435b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/lo
-cal/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb>
-</usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.p
-fb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-6.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr5.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr6.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy6.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/c
-ourier/ucrr8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/helv
-etic/uhvb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/
-utmb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmri8a.pf
-b>
-Output written on cs269.pdf (5 pages, 1920462 bytes).
+pdfTeX warning (dest): name{figure.caption.20} has been referenced but does n
+ot exist, replaced by a fixed one
+
+{/usr/local/texlive/2013basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/loca
+l/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></
+usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr5.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr6.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy6.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy9.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/cou
+rier/ucrr8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/helvet
+ic/uhvb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/ut
+mb8a.pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/local/texlive/2013basic/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on cs269.pdf (5 pages, 1920693 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 72 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
