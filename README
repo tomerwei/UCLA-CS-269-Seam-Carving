@@ -1,18 +1,11 @@
 CS269: Final Project
 
-Finding correlations via Domain specific Twitter feeds
+Methods in Segmented Image Seam Carving
 
-Tomer Weiss & Brian Liu Michael Dyer Winter 2014
+Tomer Weiss & Brian Liu Winter 2014
 
 Abstract
 
-Seam carving deals with the task of taking an input picture and
-resizing it to fit another screen type and aspect ratio. In this paper,
-we discuss possible methods to decrease the number of artifacts
-intoduced by seam carving, as well as decreasing run time of the
-original algorithm by using an image segmentation approach. Ex-
-perimental results demonstrate that in every case our method resizes
-the image faster and in some cases reduces the number of artifacts
-introduced by the original seam carving algorithm.
+Seam carving deals with the task of taking an input picture and resizing it to fit another screen type and aspect ratio. In this paper, we discuss possible methods to decrease the number of artifacts intoduced by seam carving, as well as decreasing run time of the original algorithm by using an image segmentation approach. Experimental results demonstrate that in every case our method resizes the image faster and in some cases reduces the number of artifacts introduced by the original seam carving algorithm.
 
 
