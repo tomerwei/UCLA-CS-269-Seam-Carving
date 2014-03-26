@@ -1,0 +1,76 @@
+\begin{thebibliography}{\protect\citename{Pellacini et~al\mbox{.} }2005}
+
+
+
+\bibitem[\protect\citename{Liu et~al\mbox{.} }2007]{Liu2007}
+{\sc Liu, H., Jiang, S., Huang, Q., Xu, C., and Gao, W.}
+\newblock 2007.
+\newblock Region-based visual attention analysis with its application in image browsing on small displays.
+\newblock In ACM Intl. Conf. on Multimedia: pp. 305--308.
+  
+    
+
+\bibitem[\protect\citename{Hasan et~al\mbox{.} }2009]{Hasan2009}
+{\sc Hasan, M. A. and Kim, C.}
+\newblock 2009.
+\newblock An automatic image browsing technique for small display users
+\newblock Intl. Conf.on Advanced Communication Technology: pp. 2044--2049
+
+
+\bibitem[\protect\citename{Setlur et~al\mbox{.} }2005]{Setlur2005}
+{\sc Setlur, V., Takagi, S., Raskar, R., Gleicher, M., and Gooch, B.}
+\newblock 2005.
+\newblock Automatic image retargeting
+\newblock ACM Intl. Conf. on Mobile and Ubiquitous Multimedia: pp. 59--68
+
+
+\bibitem[\protect\citename{Avidan et~al\mbox{.} }2007]{Avidan2007}
+{\sc Avidan, S. and Shamir, A.}
+\newblock 2007.
+\newblock Seam carving for content-aware image resizing
+\newblock Proc. of SIGGRAPH 26(3), 10
+
+
+\bibitem[\protect\citename{Liu et~al\mbox{.} }2010]{Liu2010}
+{\sc Liu, L., Chen, R., Wolf, L., and Cohen-Or, D.}
+\newblock 2010.
+\newblock Optimizing photo composition
+\newblock {\em Computer Graphics Forum
+(Proc. of Eurographics) 29(2)}, pp. 469--478.
+
+\bibitem[\protect\citename{Rubinstein et~al\mbox{.} }2009]{Rub2009}
+{\sc M. Rubinstein, A. Shamir, and S. Avidan. }
+\newblock 2009.
+\newblock Multi-operator media retargeting
+\newblock {\em ACM Transaction on Graphics
+(Proc. of Eurographics) 28(3)}, pp. 23:1-23:11.
+
+\bibitem[\protect\citename{Pritch et~al\mbox{.} }2009]{Pritch2009}
+{\sc Y. Pritch, E. Kav-Venaki and S. Peleg. }
+\newblock 2009.
+\newblock Shift Map Image Editing
+\newblock {\em Proc. 12th IEEE International Conf. Computer Vision}, pp. 151--158.
+
+
+\bibitem[\protect\citename{Stultz et~al\mbox{.} }2008]{Stultz}
+{\sc J. Stultz, A. Edelman }
+\newblock 2008.
+\newblock Seam Carving: Parallelizing a novel new image resizing algorithm
+\newblock 6.338/18.337 Final Project Report
+\newblock \url{http://beowulf.lcs.mit.edu/18.337-2008/projects/reports/stultz-6338.pdf}
+
+\bibitem[\protect\citename{Achanta et~al\mbox{.} }2009]{Achanta2009}
+{\sc R. Achanta and S. Susstrunk. }
+\newblock 2009.
+\newblock Saliency Detection for Content-aware Image Resizing
+\newblock {\em IEEE International Conference on Image Processing}
+
+
+\bibitem[\protect\citename{Wolf et~al\mbox{.} }2007]{Wold2007}
+{\sc L. Wolf, M. Guttmann, and Cohen-Or. D. }
+\newblock 2007.
+\newblock Non-homogeneous content-driven video-retargeting
+\newblock {\em IEEE International Conference on Computer Vision (ICCV)}, pp 1--6
+
+
+\end{thebibliography}
