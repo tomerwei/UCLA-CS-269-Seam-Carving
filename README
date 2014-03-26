@@ -1,4 +1,5 @@
 CS269: Final Project
+--------------------
 
 Methods in Segmented Image Seam Carving
 
@@ -8,4 +9,35 @@ Abstract
 
 Seam carving deals with the task of taking an input picture and resizing it to fit another screen type and aspect ratio. In this paper, we discuss possible methods to decrease the number of artifacts intoduced by seam carving, as well as decreasing run time of the original algorithm by using an image segmentation approach. Experimental results demonstrate that in every case our method resizes the image faster and in some cases reduces the number of artifacts introduced by the original seam carving algorithm.
 
+#--------------------------#
+#Python Script Instructions#
+#--------------------------#
+Original script for seam-resizing found at: https://github.com/mynameisfiber/seamresize
 
+To use: 
+
+1. Make sure you have Python 2.7 installed along with PIL (Python Imaging Library, and NumPY library)
+2. To use python script type:
+i. python rescale.py <image name here> new_width_in_pixels new_height_in_pixels
+	a. For example: python rescale.py leopard_lady.jpg 500 200
+3. The script will then ask how many horizontal and vertical segments you wish to divide the image into
+i. The outputted image will be of the form “segmented_mxn_width_height_<orig_picname>.*”
+	a. m-number of horizontal segments
+	b. n-number of vertical segments
+	c. width - new resized width
+	d. height - new resized height
+ii. the individual segments themselves are saved in the ./images folder
+iii.  there are several provided images to run tests on including
+	a. bird_magic.jpg
+	b. leopard_lady.jpg
+	c. duck.jpg
+	d. beach.png
+	e. earth.png
+iv. there are several images already resized using the traditional seam carving algorithm in this folder (prefixed by segmented1x1) including
+	a. segmented1x1_250x500duck.jpg
+	b. segmented1x1_500x200leopard_lady.jpg
+	c. bird_magic_226x375.jpg
+-there are also several images which have been resized using segmented image carving for comparison, including 
+	d. segmented10x3_250x500duck.jpg
+	e. segmented20x20_500x200leopard_lady.jpg
+	f. segmented30x30_226x375bird_magic.jpg
