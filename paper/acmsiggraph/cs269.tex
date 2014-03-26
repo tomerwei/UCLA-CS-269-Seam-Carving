@@ -137,7 +137,7 @@ Motivated by the compelling applications and the challenges related to the probl
 \subsection{Overview}
 
 \paragraph{}
-Our method builds upon the basis of the original seam carving algorithm, where we use the Laplacian to find the energy levels of each pixel in the input image. After finding the energy of each pixel, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.  Furthermore, the  number of seams in each individual segment to be removed is proportional to the total number of seams that must be removed in the entire image.  
+Our method builds upon the basis of the original seam carving algorithm, where we use the Laplacian to find the energy levels of each pixel in the input image. After finding the energy of each pixel, we segment the image to smaller, mini pictures in a grid like fashion -- vertical or horizontal. For example, if we segment the image to 3 by 3 segments, then we get a total of 9 segments. On each such segment we engage the next step of the seam carving algorithm -- i.e. finding the seams. This step is done via the basic dynamic algorithm for finding seams, but on each segment separately.  Furthermore, the  number of seams in each individual segment to be removed is proportional to that segments area to the size of the total image.
 
 \subsection{Image Energy}
 Our initial approach, similar to the original paper, is to preserve the image's energy, by removing unnoticeable pixels. That leads to the following energy function that was used in the original paper. We use $I(x)$ to denote the input image, where $x = (x, y)$. 
@@ -275,13 +275,13 @@ By imposing a gridlike structure on the images on which we ran our seam carving,
     \label{fig:leopard_lady_compare}
 \end{figure}
 \paragraph{}
-However, we found several drawbacks to our segmentation approach.  As we segment to smaller and smaller parts, black artifacts appear along the image edges. We hypothesize that this is a byproduct of our implementation, a result of dealing with integer values and losing information due to rounding errors through the segmentation.  Furthermore, due to the segmentation, the image is much less smooth than resizing using the pure seam carving algorithm.  If you look closely, along segmentation boundaries there are minor misalignments which result in a overall choppier image.   However, even our primative method of grid segmentation results in a resizing of an image with less distortions and in some ways retain the important features of the original photograph better than a pure seam carving approach.
+However, we found several drawbacks to our segmentation approach.  As we segment to smaller and smaller parts, black artifacts appear along the image edges. We hypothesize that this is a byproduct of our implementation, a result of dealing with integer values and losing information due to rounding errors through the segmentation.  Furthermore, due to the segmentation, the image is much less smooth than resizing using the pure seam carving algorithm.  If you look closely, along segmentation boundaries there are minor misalignments which result in a overall choppier image.   
 
 
 \section{Limitations}
 
 \paragraph{}
-The proposed method is dependent on where the image is segmented and in how many parts we decide to segment the image. When the segmentation divides the image into parts in which the seams that are removed from each segment come from drastically different segments of the image, we end up with a faulty resizing, and image segments that do not line up, introducing artifacts along segmentation boundaries when we try to reassemble the individual segments. 
+The proposed method is dependent on where the image is segmented and in how many parts we decide to segment the image. When the segmentation divides the image into parts in which the seams that are removed from each segment come from drastically different parts of the image, we end up with a faulty resizing, and image features that do not line up, introducing artifacts along segmentation boundaries when we try to reassemble the individual segments. 
 \begin{figure}[ht]
     \fbox{\includegraphics[width=1.5in]{images/hof}}       
     \fbox{\includegraphics[width=1.5in]{images/hof_segemented_lines}}
@@ -289,7 +289,7 @@ The proposed method is dependent on where the image is segmented and in how many
     \label{fig:Beach_in_and_out}
 \end{figure}
 \paragraph{}
-For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}.  As you can see the segmentation we cuts through some major features of the image namely, the coastline.  This problem could be mitigated as we segment the image into smaller and smaller pieces, however this introduces the black artifact that we discussed earlier.  We feel ideally that there are better ways to segment images while still running the seam carving algorithm, several extensions of which we shall discuss in the next section.  
+For example, we used 3 by 3 segmentation to produce Figure ~\ref{fig:Beach_in_and_out}.  As you can see the segmentation we cuts through some major features of the image namely, the coastline.  This problem could be mitigated as we segment the image into smaller and smaller pieces, however this introduces the black artifact that we discussed earlier.  A smarter way to divide the image would be to split it into three horizontal segments; one right above the coastline, one encompassing the coastline, and one underneath the coastline.  Looking back on Figure 5 we can see this segmentation results in a near duplicate of the inputted image and introduces no artifacts.  We feel ideally that there are better ways to segment images while still running the seam carving algorithm, several extensions of which we shall discuss in the next section.  
 
 
 \section{Conclusions and Future Work}
@@ -308,7 +308,7 @@ In this paper we proposed a content-aware image resizing algorithm which builds 
 
 
 \paragraph{}
-Finally, there is always room for testing on more images, and trying different energy filters, since the results tend to be subjective by nature. There are further ways to utilize image segmentation to improve image resizing in large and specifically the Seam Carving method.  Conducting more experiments and getting input from users providing some top-down information is essential in refining this technique.  In the meantime, we conclude that segmenting the image in a gridlike fashion vastly improves the run time of the original seam carving algorithm.  Furthermore, by imposing a gridlike structure on the original image, we feed the seam carving algorithm some top down information which helps the image retain some of its more salient features, while removing distortion caused by noisy background or feature rich images.  
+Finally, there is always room for testing on more images, and trying different energy filters, since the results tend to be subjective by nature. There are further ways to utilize image segmentation to improve image resizing in large and specifically the Seam Carving method.  Conducting more experiments and getting input from users providing some top-down information is essential in refining this technique.  In the meantime, we conclude that segmenting the image in a gridlike fashion greatly improves the run time of the original seam carving algorithm.  Furthermore, by imposing a gridlike structure on the original image, we feed the seam carving algorithm some top down information which helps the image retain some of its more salient features, while removing distortion caused by noisy background or feature rich images.  
 
 \bibliographystyle{acmsiggraph}
 \bibliography{template}
